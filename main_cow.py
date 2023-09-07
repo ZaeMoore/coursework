@@ -7,4 +7,3 @@ x_i = float(input("Initial X Position (m) = "))
 y_i = float(input("Initial Y Position (m) = "))
 vx_i = float(input("Initial Velocity in X Direction (m/s) = "))
 vy_i = float(input("Initial Velicty in Y Direction (m/s) = "))
-
