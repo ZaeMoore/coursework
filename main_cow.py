@@ -1,6 +1,4 @@
 #Main Program to Call Functions to Find the Cow
-import matplotlib
-matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import numpy as np
 
