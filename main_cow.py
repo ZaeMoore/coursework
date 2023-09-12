@@ -1,10 +1,10 @@
 #Main Program to Call Functions to Find the Cow
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 #User inputs variables and initial conditions
 t = 0 #Time starts at 0
-t_increment = float(input("Time increment (s) = ")) #User inputs time increment
+t_increment = 0.001
 x_i = float(input("Initial X Position (m) = "))
 y_i = float(input("Initial Y Position (m) = "))
 vx_i = float(input("Initial Velocity in X Direction (m/s) = "))
@@ -88,11 +88,31 @@ while y > 0: #Loop over all time that cow is in the air
     time+= t_increment
     tList.append(time)
 
-print(yList)
-
-plt.scatter(tList,yList)
-plt.title("Bread")
-plt.xlabel("Time (s)")
+plt.figure(1)
+plt.scatter(xList,yList)
+plt.title("X vs. Y")
+plt.xlabel("X (m)")
 plt.ylabel("Y (m)")
-plt.savefig("mygraph.png")
+plt.savefig("positionplot.png")
+
+plt.figure(2)
+plt.scatter(tList,uList)
+plt.title("Potential Energy over Time")
+plt.xlabel("Time (s)")
+plt.ylabel("Potential Energy")
+plt.savefig("uplot.png")
+
+plt.figure(3)
+plt.scatter(tList,kList)
+plt.title("Kinetic Energy over Time")
+plt.xlabel("Time (s)")
+plt.ylabel("Kinetic Energy")
+plt.savefig("kplot.png")
+
+plt.figure(4)
+plt.scatter(tList,eList)
+plt.title("Total Energy over Time")
+plt.xlabel("Time (s)")
+plt.ylabel("Total Energy")
+plt.savefig("eplot.png")
 
