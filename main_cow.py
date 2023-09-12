@@ -1,4 +1,6 @@
 #Main Program to Call Functions to Find the Cow
+import matplotlib.pyplot as plt
+
 
 #User inputs variables and initial conditions
 t = 0 #Time starts at 0
@@ -58,6 +60,7 @@ vx = vx_i
 vy = vy_i
 x = x_i
 y = y_i
+time = 0
 while y > 0: #Loop over all time that cow is in the air
     #Find the forces
     forces = func1(vx, vy, k)
@@ -82,5 +85,14 @@ while y > 0: #Loop over all time that cow is in the air
     kList.append(calculateKinetic(vx, vy))
     eList.append(calculateTotalenergy(y, vx, vy))
 
+    time+= t_increment
+    tList.append(time)
+
 print(yList)
+
+plt.scatter(tList,yList)
+plt.title("Bread")
+plt.xlabel("Time (s)")
+plt.ylabel("Y (m)")
+plt.savefig("mygraph.png")
 
