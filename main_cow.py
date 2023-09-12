@@ -7,8 +7,10 @@ x_i = float(input("Initial X Position (m) = "))
 y_i = float(input("Initial Y Position (m) = "))
 vx_i = float(input("Initial Velocity in X Direction (m/s) = "))
 vy_i = float(input("Initial Velicty in Y Direction (m/s) = "))
+k = float(input("Wind resistance factor = "))
 
-def func1(x, y, v_x, v_y, k):
+#A function that takes in the cow’s current position and velocity vector and returns the total force vector
+def func1(v_x, v_y, k):
     Fg_y = -1000*9.8
     Fg_x = 0
     Fw_x = -k*((v_x)**2)
@@ -19,6 +21,7 @@ def func1(x, y, v_x, v_y, k):
 
     return Ftot_x, Ftot_y
 
+#A function which takes the cow’s current position, velocity, and the acting force, and returns a new position and velocity some *small* time later
 def func2(x, y, v_x, v_y, Ftot_x, Ftot_y, t):
     xf = x + (v_x*t) + 0.5*Ftot_x*(t**2)/1000
     yf = y + (v_y*t) + 0.5*Ftot_y*(t**2)/1000
@@ -39,3 +42,45 @@ def calculateKinetic(velocityx,velocityy):
 def calculateTotalenergy(height, velocityx, velocityy):
     total_energy=calculatePotential(height) + calculateKinetic(velocityx,velocityy)
     return total_energy
+
+#Let's get this bread
+xList = [x_i]
+yList = [y_i]
+vxList = [vx_i]
+vyList = [vy_i]
+tList = [0]
+FxList = [0]
+FyList = [0]
+uList = [0]
+kList = [0]
+eList = [0]
+vx = vx_i 
+vy = vy_i
+x = x_i
+y = y_i
+while y > 0: #Loop over all time that cow is in the air
+    #Find the forces
+    forces = func1(vx, vy, k)
+    Fx = forces[0]
+    Fy = forces[1]
+    FxList.append(Fx)
+    FyList.append(Fy)
+
+    #Find position, velocity
+    values = func2(x, y, vx, vy, Fx, Fy, t_increment)
+    x = values[0]
+    y = values[1]
+    vx = values[2]
+    vy = values[3]
+    xList.append(x)
+    yList.append(y)
+    vxList.append(vx)
+    vyList.append(vy)
+
+    #Energies
+    uList.append(calculatePotential(y))
+    kList.append(calculateKinetic(vx, vy))
+    eList.append(calculateTotalenergy(y, vx, vy))
+
+print(yList)
+
