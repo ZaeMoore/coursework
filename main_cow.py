@@ -89,35 +89,39 @@ while y > 0: #Loop over all time that cow is in the air
     time+= t_increment
     tList.append(time)
 
-def f(x):
-    return 
+new_x = np.array(xList)
 
+def f(a): #analytic solution for 0 air resistance
+    theta = np.arctan(vy_i/vx_i)
+    u = vx_i**2 + vy_i**2
+    return (a - x_i) * np.tan(theta) - (4.6 * (a - x_i)**2)/(u * (np.cos(theta))**2) + y_i
+ 
 plt.figure(1)
-plt.scatter(xList,yList)
-plt.plot(xList, f(xList))
+plt.scatter(xList,yList, color='r')
+plt.plot(new_x, f(new_x))
 plt.title("X vs. Y")
 plt.xlabel("X (m)")
 plt.ylabel("Y (m)")
-plt.show()
+plt.savefig("mygraph")
 
 plt.figure(2)
 plt.scatter(tList,uList)
 plt.title("Potential Energy over Time")
 plt.xlabel("Time (s)")
 plt.ylabel("Potential Energy")
-plt.show()
+#plt.show()
 
 plt.figure(3)
 plt.scatter(tList,kList)
 plt.title("Kinetic Energy over Time")
 plt.xlabel("Time (s)")
 plt.ylabel("Kinetic Energy")
-plt.show()
+#plt.show()
 
 plt.figure(4)
 plt.scatter(tList,eList)
 plt.title("Total Energy over Time")
 plt.xlabel("Time (s)")
 plt.ylabel("Total Energy")
-plt.show()
+#plt.show()
 
