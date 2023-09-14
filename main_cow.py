@@ -12,6 +12,8 @@ vx_i = 2
 vy_i = 5
 k = 1
 
+file = open('Output.txt', 'w')
+
 #A function that takes in the cow’s current position and velocity vector and returns the total force vector
 def func1(v_x, v_y, k):
     Fg_y = -1000*9.8
@@ -89,6 +91,10 @@ while y > 0: #Loop over all time that cow is in the air
     time+= t_increment
     tList.append(time)
 
+    file.write(f"{time} {x} {y} \n")
+
+file.close()
+
 new_x = np.array(xList)
 
 def f(a): #analytic solution for 0 air resistance
@@ -96,6 +102,9 @@ def f(a): #analytic solution for 0 air resistance
     u = vx_i**2 + vy_i**2
     return (a - x_i) * np.tan(theta) - (4.6 * (a - x_i)**2)/(u * (np.cos(theta))**2) + y_i
  
+fig, axes = plt.subplots()
+fig.set_size_inches(10, 7)
+
 plt.figure(1)
 plt.scatter(xList,yList, color='r')
 plt.plot(new_x, f(new_x))
