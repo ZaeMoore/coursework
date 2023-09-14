@@ -39,7 +39,7 @@ def calculatePotential(height):
     return potential
 
 def calculateKinetic(velocityx,velocityy):
-    kinetic=.5*1000*((velocityx**2+velocityy**2)**.5)
+    kinetic=.5*1000*((velocityx**2+velocityy**2))
     return kinetic
 
 def calculateTotalenergy(height, velocityx, velocityy):
