@@ -9,7 +9,7 @@ t_inc = round(t_increment,3)
 x_i = 0
 y_i = 1000
 vx_i = 2
-vy_i = 5
+vy_i = 10
 k = 1
 
 file = open('Output.txt', 'w')
@@ -18,8 +18,8 @@ file = open('Output.txt', 'w')
 def func1(v_x, v_y, k):
     Fg_y = -1000*9.8
     Fg_x = 0
-    Fw_x = -k*((v_x)**2)
-    Fw_y = -k*((v_y)**2)
+    Fw_x = -k * v_x * np.abs(v_x)
+    Fw_y = -k * v_y * np.abs(v_y)
 
     Ftot_x = Fg_x + Fw_x
     Ftot_y = Fg_y + Fw_y
