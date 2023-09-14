@@ -6,11 +6,11 @@ import numpy as np
 t = 0 #Time starts at 0
 t_increment = 0.001
 t_inc = round(t_increment,3)
-x_i = float(input("Initial X Position (m) = "))
-y_i = float(input("Initial Y Position (m) = "))
-vx_i = float(input("Initial Velocity in X Direction (m/s) = "))
-vy_i = float(input("Initial Velicty in Y Direction (m/s) = "))
-k = float(input("Wind resistance factor = "))
+x_i = 0
+y_i = 1000
+vx_i = 2
+vy_i = 5
+k = 1
 
 #A function that takes in the cow’s current position and velocity vector and returns the total force vector
 def func1(v_x, v_y, k):
@@ -102,7 +102,7 @@ plt.plot(new_x, f(new_x))
 plt.title("X vs. Y")
 plt.xlabel("X (m)")
 plt.ylabel("Y (m)")
-plt.savefig("mygraph")
+#plt.show()
 
 plt.figure(2)
 plt.scatter(tList,uList)
@@ -125,3 +125,9 @@ plt.xlabel("Time (s)")
 plt.ylabel("Total Energy")
 #plt.show()
 
+plt.figure(5)
+plt.scatter(tList, vyList)
+plt.title("Y-Velocity over Time")
+plt.xlabel("Time (s)")
+plt.ylabel("Y Velocity (m/s)")
+plt.savefig("yvel.png")
