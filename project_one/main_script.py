@@ -7,44 +7,73 @@ and that is passed to the other 2
 it should be straightforward to switch between different integration methods
 Include a 'useage' readme file in your repository that details how to run the code.
 """
+#https://docs.scipy.org/doc/scipy/ Look here for how to code these things
+import matplotlib.pyplot as plt
+import scipy as sp
+from scipy.integrate import solve_ivp
+import numpy as np
 import integral_solver as integ
 import ode_solver as ode
+
 
 whatchadoin = input("Integral (Type 1) or ODE (Type 2)?: ")
 
 #Integral
 if whatchadoin == 1: 
+    k = 5 #Factor to be defined for funsies
+    rad = 10 #radius of sphere in m
 
-    method = input("Choose a method of integration: riemann (type 1), trapezoidal (type 2), or simpsons (type 3): ")
+    def rho(r):
+        return k*(r**3)
 
-    if method == 1:
-        step_size = input("Choose the step size: ")
-        integ.riemann(step_size)
+    step_size = input("Choose the step size: ")
+    integ.riemann(step_size)
+    
+    integ.trap(step_size)
 
-    elif method == 2:
-        step_size = input("Choose the step size: ")
-        integ.trap(step_size)
+    integ.simpson(step_size)
 
-    elif method == 3:
-        step_size = input("Choose the step size: ")
-        integ.simpson(step_size)
 
-    else:
-        print("Method is not a valid choice. Please try again.")
 
 #ODE
 elif whatchadoin == 2:
+    k = 3 #k is a positive constant related to the type of material and size of the object
+    temp_env = 10 #Temperature of environment in Kelvin
 
-    method = input("Choose a method of ODE solving: euler (type 1) or runge-kutta (type 2): ")
-
-    if method == 1:
-        ode.euler(1)
-
-    if method == 2:
-        ode.rungekutta(1)
+    #y is temperature, t is time
+    def func(t, y):
+        return -k(y-temp_env)
     
-    else:
-        print("Method is not a valid choice. Please try again")
+    t_0 = 0 #Initial time
+    y_0 = 40 #Initial temperature in Kelvin
+    t_list = [t_0]
+    y_rk = [y_0]
+    y_eu = [y_0]
+
+    step_size = input("Choose the step size: ")
+    max_t = int(input("Maximum time value (s) = "))
+
+    t_eval = np.arange(0, max_t, step_size)
+    analytic_sol = solve_ivp(func, [0, max_t], y_0, t_eval=t_eval)
+
+    while t_rknew <= max_t:
+
+        t_rknew, y_rknew = ode.euler(step_size, t_0, y_0, func)
+        y_rk.append(y_rknew)
+
+        t_eunew, y_eunew = ode.rungekutta(step_size, t_0, y_0, func)
+        y_eu.append(y_eunew)
+
+        t_list.append(t_rknew)
+
+    #Plot rk, eu, and scipy solutions
+    plt.figure(1)
+    plt.plot(t_list, y_eu, label = "Euler", color = "blue")
+    plt.plot(t_list, y_rk, label = "Runge-Kutta", color = "green")
+    plt.plot(t_eval, analytic_sol, label = "Scipy solution", color = "red")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Temperature (K)")
+    plt.title("Solving Newton's Law of Cooling")
 
 else:
     print("Not a valid option. Please try again.")
