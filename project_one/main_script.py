@@ -7,3 +7,7 @@ and that is passed to the other 2
 it should be straightforward to switch between different integration methods
 Include a 'useage' readme file in your repository that details how to run the code.
 """
+import integral_solver as integ
+import ode_solver as ode
+
+
