@@ -15,11 +15,6 @@ Delete these comments later
 #E = Q/(r**2) 
 #Check that E_in = E_out at r = 10
 #Check that E_out goes to 0 at r=inf
-k = 5 #Factor to be defined for funsies
-rad = 10 #radius of sphere in m
-
-def rho(r):
-    return k*(r**3)
 
 def riemann(step_size):
     step_size

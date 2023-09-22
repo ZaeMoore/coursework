@@ -8,6 +8,7 @@ it should be straightforward to switch between different integration methods
 Include a 'useage' readme file in your repository that details how to run the code.
 """
 #https://docs.scipy.org/doc/scipy/ Look here for how to code these things
+import matplotlib
 import matplotlib.pyplot as plt
 import scipy as sp
 from scipy.integrate import solve_ivp
@@ -53,9 +54,6 @@ elif whatchadoin == 2:
     step_size = input("Choose the step size: ")
     max_t = int(input("Maximum time value (s) = "))
 
-    t_eval = np.arange(0, max_t, step_size)
-    analytic_sol = solve_ivp(func, [0, max_t], y_0, t_eval=t_eval)
-
     while t_rknew <= max_t:
 
         t_rknew, y_rknew = ode.euler(step_size, t_0, y_0, func)
@@ -66,11 +64,15 @@ elif whatchadoin == 2:
 
         t_list.append(t_rknew)
 
+    t_eval, sci_sol = ode.scipy_sol(step_size, max_t, y_0, func)
+    analytic_sol = ode.analytic_sol(step_size, y_0, temp_env, k, max_t)
+
     #Plot rk, eu, and scipy solutions
     plt.figure(1)
-    plt.plot(t_list, y_eu, label = "Euler", color = "blue")
-    plt.plot(t_list, y_rk, label = "Runge-Kutta", color = "green")
-    plt.plot(t_eval, analytic_sol, label = "Scipy solution", color = "red")
+    plt.plot(t_list, y_eu, label = "Euler", color = "blue", linestyle = "dashed")
+    plt.plot(t_list, y_rk, label = "Runge-Kutta", color = "green", linestyle = "dashed")
+    plt.plot(t_eval, sci_sol, label = "Scipy solution", color = "red", linestyle = "dashed")
+    plt.plot(t_eval, analytic_sol, label = "Exact solution", color = "purple")
     plt.xlabel("Time (s)")
     plt.ylabel("Temperature (K)")
     plt.title("Solving Newton's Law of Cooling")
