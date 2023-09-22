@@ -1,7 +1,11 @@
 import math
 
-# returns '4.08E+10'
-class LongFloat():
+sig = 10
+exp = 4
+digits = 2
+list_one = [0, 1, 2, 3]
+
+class Longgg():
 
     def __init__(self, sig_digits, exp, digits):
         self.sig = sig_digits
@@ -10,16 +14,12 @@ class LongFloat():
         pass
 
     def to_LongFloat(self, value):
-        if isinstance(value, LongFloat):
+        if isinstance(value, Longgg):
             return value.sig, value.exp
         elif isinstance(value, float):
             exp = round(math.log(float))
             sig = round(float / 10**exp, self.digits)
-            return LongFloat(sig, exp)
-
-    #x = a / 1eN * 10**b -> a and b are integers. N is just used to make sure a is between 0 and 10.
-    #Define a print method that will print answewrs in sign fig
-    #Each method will return LongFloat(a,b)
+            return Longgg(sig, exp)
 
     #Add 2 precise long floats
     def __add__(self, other):
@@ -43,6 +43,7 @@ class LongFloat():
             sum_sig = round(sig_new + sig2, self.digits)
             sum_exp = self.exp
 
+        print(sum_sig + "E" + sum_exp)
         return sum_sig, sum_exp
     
     def __sub__(self, other):
@@ -62,6 +63,7 @@ class LongFloat():
             diff_sig = round(sig_new - sig2, self.digits)
             diff_exp = self.exp
 
+        print(diff_sig + "E" + diff_exp)
         return diff_sig, diff_exp
     
     def __mul__(self, other):
@@ -76,21 +78,33 @@ class LongFloat():
 
         new_exp += mul_exp
 
+        print(new_sig + "E" + new_exp)
         return new_sig, new_exp
     
     def __div__(self, other):
         sig2 = self.to_LongFloat(other)[0]
         exp2 = self.to_LongFloat(other)[1]
 
-        diff_exp = self.exp - exp2
-        diff_sig = self.sig - sig2
+        div_exp = self.exp - exp2
+        div_sig = self.sig/sig2
 
-        
+        new_exp = round(math.log(div_sig))
+        new_sig = round(div_sig/10**new_exp, self.digits)
 
-        return other
-        
+        new_exp += div_exp
+
+        print(new_sig + "E" + new_exp)
+        return new_sig, new_exp
+
 
 class Vector([]):
+    #Should be able to add, subtract, multiple, or divice a vector by a Long High Precision Number. 
+    #Will probably need to loop
+    #Also make a sort method
 
     def __add__(self, other):
         return other
+    
+
+long_one = Longgg(sig, exp, digits)
+vector_one = Vector(list_one)
