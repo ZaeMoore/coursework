@@ -1,5 +1,16 @@
 import math
-
+'''
+* high precision floating point object
+      * add / subtract / multiply / divide
+      * built ontop of integers
+      * use base 10
+      * choose a specific number of significant digits
+      * methods should accept either a LongFloat or float
+      * define a print() in scientific notation 
+* high precision vector inherited from list
+      * (same methods as the floating point object)
+      * implement a sort method
+'''
 sig = 10
 exp = 4
 digits = 2
