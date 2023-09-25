@@ -98,7 +98,7 @@ class Longgg():
 
 
 class Vector([]):
-    #Should be able to add, subtract, multiple, or divice a vector by a Long High Precision Number. 
+    #Should be able to add, subtract, multiple, or divide a 1D vector by another 1D vector
     #Will probably need to loop
     #Also make a sort method
 
