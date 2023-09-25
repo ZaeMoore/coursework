@@ -112,10 +112,89 @@ class Vector([]):
     #Should be able to add, subtract, multiple, or divide a 1D vector by another 1D vector
     #Will probably need to loop
     #Also make a sort method
+    def __init__(self, vector,  digits):
+        self.digits = digits
+        self.vector = vector
+        pass
 
-    def __add__(self, other):
-        return other
+    def to_LongFloat(self, value):
+        if isinstance(value, Longgg):
+            return value.sig, value.exp
+        elif isinstance(value, float):
+            exp = round(math.log(float))
+            sig = round(float / 10**exp, self.digits)
+            return Longgg(sig, exp)
+
+    def __add__(self, vector_other):
+        new_vector_sig = []
+        new_vector_exp = []
+        sig1_vector = []
+        sig2_vector = []
+        exp1_vector = []
+        exp2_vector = []
+        for i in self.vector:
+            sig1_vector.append(self.to_LongFloat(self.vector)[0])
+            exp1_vector.append(self.to_LongFloat(self.vector)[1])
+            sig2_vector.append(self.to_LongFloat(vector_other)[0])
+            exp2_vector.append(self.to_LongFloat(vector_other)[1])
+            new_vector_sig.append(sig1_vector[i] + sig2_vector[i])
+            new_vector_exp.append(exp1_vector[i] + exp2_vector[i])
+
+        return new_vector_sig, new_vector_exp
     
+    def __sub__(self, vector_other):
+        new_vector_sig = []
+        new_vector_exp = []
+        sig1_vector = []
+        sig2_vector = []
+        exp1_vector = []
+        exp2_vector = []
+        for i in self.vector:
+            sig1_vector.append(self.to_LongFloat(self.vector)[0])
+            exp1_vector.append(self.to_LongFloat(self.vector)[1])
+            sig2_vector.append(self.to_LongFloat(vector_other)[0])
+            exp2_vector.append(self.to_LongFloat(vector_other)[1])
+            new_vector_sig.append(sig1_vector[i] - sig2_vector[i])
+            new_vector_exp.append(exp1_vector[i] - exp2_vector[i])
+
+        return new_vector_sig, new_vector_exp
+    
+    def __mul__(self, vector_other):
+        new_vector_sig = []
+        new_vector_exp = []
+        sig1_vector = []
+        sig2_vector = []
+        exp1_vector = []
+        exp2_vector = []
+        for i in self.vector:
+            sig1_vector.append(self.to_LongFloat(self.vector)[0])
+            exp1_vector.append(self.to_LongFloat(self.vector)[1])
+            sig2_vector.append(self.to_LongFloat(vector_other)[0])
+            exp2_vector.append(self.to_LongFloat(vector_other)[1])
+            new_vector_sig.append(sig1_vector[i] * sig2_vector[i])
+            new_vector_exp.append(exp1_vector[i] * exp2_vector[i])
+
+        return new_vector_sig, new_vector_exp
+    
+    def __div__(self, vector_other):
+        new_vector_sig = []
+        new_vector_exp = []
+        sig1_vector = []
+        sig2_vector = []
+        exp1_vector = []
+        exp2_vector = []
+        for i in self.vector:
+            sig1_vector.append(self.to_LongFloat(self.vector)[0])
+            exp1_vector.append(self.to_LongFloat(self.vector)[1])
+            sig2_vector.append(self.to_LongFloat(vector_other)[0])
+            exp2_vector.append(self.to_LongFloat(vector_other)[1])
+            new_vector_sig.append(sig1_vector[i] / sig2_vector[i])
+            new_vector_exp.append(exp1_vector[i] / exp2_vector[i])
+
+        return new_vector_sig, new_vector_exp
+    
+    def sort(self):
+        return self.vector.sort()
 
 long_one = Longgg(sig, exp, digits)
 vector_one = Vector(list_one)
