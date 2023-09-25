@@ -23,16 +23,20 @@ whatchadoin = input("Integral (Type 1) or ODE (Type 2)?: ")
 if whatchadoin == 1: 
     k = 5 #Factor to be defined for funsies
     rad = 10 #radius of sphere in m
+    max_r = 100
 
     def rho(r):
         return k*(r**3)
 
     step_size = input("Choose the step size: ")
-    integ.riemann(step_size)
-    
-    integ.trap(step_size)
 
-    integ.simpson(step_size)
+    r = np.linspace(0, 100, max_r/step_size)
+
+    integ.riemann(step_size, rho, rad, r, max_r)
+    
+    integ.trap(step_size, rho, rad, r, max_r)
+
+    integ.simpson(step_size, rho, rad, r, max_r)
 
 
 
