@@ -12,32 +12,53 @@ Delete these comments later
 #https://knowledge.carolina.com/discipline/physical-science/physics/newtons-law-of-cooling/
 import numpy as np
 import scipy as sp
-from scipy.integrate import solve_ivp
+from scipy.integrate import odeint
 
-def euler(h, t, y, func):
-    y += h * func(t, y)
-    t += h
-    return t, y
+k = 3.0 #k is a positive constant related to the type of material and size of the object
+temp_env = 10.0 #Temperature of environment in Kelvin
 
-def rungekutta(h, t, y, func): #h is step size
-    k1 = func(t, y)
-    k2 = func(t + 0.5 * h, y + 0.5 * k1 * h)
-    k3 = func(t + 0.5 * h, y + 0.5 * k2 * h)
-    k4 = func(t + h, y + k3 * h)
+def func(t, y):
+    dydt = -k * (y-temp_env)
+    return dydt
 
-    y += (h/6) * (k1 + 2 * k2 + 2 * k3 + k4)
-    t += h
+def euler(h, t_0, max_t, temp_0):
+    t = t_0
+    t_list = [t_0]
+    temp = temp_0
+    temp_eu = [temp_0]
+    while t <= max_t:
+        new_temp = h * func(t, temp)
+        temp = temp + new_temp
+        temp_eu.append(temp)
+        t += h
+        t_list.append(t)
 
-    return t, y
+    return temp_eu, t_list
 
-def scipy_sol(h, max_t, y_0, func):
+def rungekutta(h, t_0, max_t, temp_0): #h is step size
+    t = t_0
+    temp = temp_0
+    temp_rk = [temp_0]
+    while t <= max_t:
+        k1 = func(t, temp)
+        k2 = func(t + 0.5 * h, temp + 0.5 * k1 * h)
+        k3 = func(t + 0.5 * h, temp + 0.5 * k2 * h)
+        k4 = func(t + h, temp + k3 * h)
+
+        temp = temp + (h/6) * (k1 + 2 * k2 + 2 * k3 + k4)
+        temp_rk.append(temp)
+        t += h
+    
+    return temp_rk
+
+def scipy_sol(h, max_t, y_0):
     t_eval = np.arange(0, max_t, h)
-    sci_sol = solve_ivp(func, [0, max_t], y_0, t_eval=t_eval)
+    sci_sol = odeint(func, y_0, t_eval)
     return t_eval, sci_sol
 
-def analytic_sol(h, y_0, t_env, k, max_t):
+def analytic_sol(h, y_0, max_t):
     t = np.arange(0, max_t, h)
-    c = t_env - y_0
-    solution = t_env - c * np.exp(-k * t)
+    c = temp_env - y_0
+    solution = temp_env - c * np.exp(-k * t)
 
-    return solution
+    return solution, t

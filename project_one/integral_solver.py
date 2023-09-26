@@ -16,27 +16,62 @@ Delete these comments later
 #Check that E_in = E_out at r = 10
 #Check that E_out goes to 0 at r=inf
 #integ.riemann(step_size, rho, k, rad, r)
-def riemann(step_size, rho, radius, r_in, max_r):
-    solution_out = 0
-    r_out = radius
-    while r_out < max_r:
-        solution_out += step_size * rho(r_out)
-        r_out += step_size
-    solution_in = step_size * rho(r_in)
-    return solution_out, solution_in
+k = 5
 
-def trap(step_size, rho, radius, r_in, max_r):
-    #Area of trap: 0.5*h*(base1 + base2)
-    solution_out = 0
-    r_out = radius
-    while r_out < max_r:
-        r_new = r_out + step_size
-        solution_out += 0.5 * step_size * (rho(r_out) + rho(r_new))
-        r_out += step_size
-    solution_in = 0.5 * step_size * (rho(r_in) + rho(r_in + step_size))
-    return solution_out, solution_in
+def rho(r):
+    return k*(r**3)
 
-def simpson(step_size, rho, radius, r_in, max_r):
-    solution_out = (1/6) * (max_r - radius) * (rho(radius) + rho(max_r) + 4 * rho(0.5 * (max_r - radius)))
-    solution_in = (1/6) * r_in * (rho(0) + 4 * rho(0.5 * r_in) + rho(r_in))
-    return solution_out, solution_in
+def riemann(step_size, radius, max_r):
+    solution_out = []
+    solution_in = []
+    r_in = []
+    r_out = []
+    ro = radius
+    ri = 0
+    while r_out < max_r:
+        new_out = step_size * rho(ro)
+        solution_out.append(new_out)
+        r_out.append(ro)
+        ro += step_size
+    while r_in < radius:
+        new_in = step_size * rho(ri)
+        solution_in.append(new_in)
+        r_in.append(ri)
+        ri += step_size
+    return r_in, r_out, solution_in, solution_out
+
+def trap(step_size, radius, max_r):
+    solution_out = []
+    solution_in = []
+    r_in = []
+    r_out = []
+    ro = radius
+    ri = 0
+    while r_out < max_r:
+        r_out.append(ro)
+        solution_out.append(0.5 * step_size * (rho(ro) + rho(ro + step_size)))
+        ro += step_size
+    while r_in < radius:
+        r_in.append(ri)
+        solution_in.append(0.5 * step_size * (rho(ri) + rho(ri + step_size)))
+        ri += step_size
+
+    return r_in, r_out, solution_in, solution_out
+
+def simpson(step_size, radius, max_r):
+    solution_out = []
+    solution_in = []
+    r_in = []
+    r_out = []
+    ro = radius
+    ri = 0
+    while r_out < max_r:
+        solution_out.append((1/6) * (max_r - ro) * (rho(ro) + rho(max_r) + 4 * rho(0.5 * (max_r - ro))))
+        r_out.append(ro)
+        ro += step_size
+    while r_in < radius:    
+        solution_in.append((1/6) * ri * (rho(0) + 4 * rho(0.5 * ri) + rho(ri)))
+        r_in.append(ri)
+        ri += step_size
+
+    return r_in, r_out, solution_in, solution_out

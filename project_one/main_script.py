@@ -8,6 +8,7 @@ it should be straightforward to switch between different integration methods
 Include a 'useage' readme file in your repository that details how to run the code.
 """
 import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import scipy as sp
 from scipy.integrate import solve_ivp
@@ -20,70 +21,58 @@ whatchadoin = input("Integral (Type 1) or ODE (Type 2)?: ")
 
 #Integral
 if whatchadoin == "1": 
-    k = 5 #Factor to be defined for funsies
+     #Factor to be defined for funsies
     rad = 10 #radius of sphere in m
     max_r = 100
 
-    def rho(r):
-        return k*(r**3)
-
     step_size = float(input("Choose the step size: "))
 
-    r = np.arange(0, max_r, step_size)
-    r_in = np.arange(0, rad, step_size)
-
-    integ.riemann(step_size, rho, rad, r_in, max_r)
+    rr_in, rr_out, rsol_in, rsol_out = integ.riemann(step_size, rad, max_r)
     
-    integ.trap(step_size, rho, rad, r_in, max_r)
+    tr_in, tr_out, tsol_in, tsol_out = integ.trap(step_size, rad, max_r)
 
-    integ.simpson(step_size, rho, rad, r_in, max_r)
+    simp_out, simp_in =integ.simpson(step_size, rad, max_r)
 
-
+    plt.figure(2)
+    plt.plot(rr_in, rsol_in, label = "Riemann Sum inside Sphere", color = "blue", linestyle = "dashed", linewidth = 3)
+    plt.plot(rr_out, rsol_out, label = "Riemann Sum outside Sphere", color = "blue", linestyle = "dashed", linewidth = 3)
+    plt.xlabel("Time (s)")
+    plt.ylabel("Temperature (K)")
+    plt.legend()
+    plt.title("Solving Newton's Law of Cooling")
+    plt.savefig("ODE")
 
 #ODE
 elif whatchadoin == "2":
-    k = 3 #k is a positive constant related to the type of material and size of the object
-    temp_env = 10 #Temperature of environment in Kelvin
 
-    #y is temperature, t is time
-    def func(y):
-        dydt = -k * (y-temp_env)
-        return dydt
-    
     t_0 = 0 #Initial time
-    y_0 = 40 #Initial temperature in Kelvin
-    t_list = [t_0]
-    y_rk = [y_0]
-    y_eu = [y_0]
-    t_rknew = 0
+    temp_0 = 40 #Initial temperature in Kelvin
+    time = t_0
 
-    step_size = input("Choose the step size: ")
+    step_size = float(input("Choose the step size: "))
     max_t = int(input("Maximum time value (s) = "))
 
-    while t_rknew <= max_t:
+    temp_eu, t_list = ode.euler(step_size, t_0, max_t, temp_0)
+    temp_rk = ode.rungekutta(step_size, t_0, max_t, temp_0)
 
-        t_rknew, y_rknew = ode.euler(step_size, t_0, y_0, func)
-        y_rk.append(y_rknew)
+    t_list_sci, sci_sol = ode.scipy_sol(step_size, max_t, temp_0)
+    analytic_sol, analytic_time = ode.analytic_sol(step_size, temp_0, max_t)
 
-        t_eunew, y_eunew = ode.rungekutta(step_size, t_0, y_0, func)
-        y_eu.append(y_eunew)
-
-        t_list.append(t_rknew)
-
-    t_eval, sci_sol = ode.scipy_sol(step_size, max_t, y_0, func)
-    analytic_sol = ode.analytic_sol(step_size, y_0, temp_env, k, max_t)
+    #Plot rk, eu, and scipy solutions
+    plt.figure(1)
+    plt.plot(t_list, temp_eu, label = "Euler", color = "blue", linestyle = "dashed", linewidth = 3)
+    plt.plot(t_list, temp_rk, label = "Runge-Kutta", color = "purple", linestyle = "dashed", linewidth = 3)
+    plt.plot(t_list_sci, sci_sol, label = "Scipy solution", color = "red", linestyle = "dashed")
+    plt.plot(analytic_time, analytic_sol, label = "Exact solution", color = "green")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Temperature (K)")
+    plt.legend()
+    plt.title("Solving Newton's Law of Cooling")
+    plt.savefig("ODE")
 
 else:
     print("Not a valid option. Please try again.")
 
 
-    #Plot rk, eu, and scipy solutions
-    plt.figure(1)
-    plt.plot(t_list, y_eu, label = "Euler", color = "blue", linestyle = "dashed")
-    plt.plot(t_list, y_rk, label = "Runge-Kutta", color = "green", linestyle = "dashed")
-    plt.plot(t_eval, sci_sol, label = "Scipy solution", color = "red", linestyle = "dashed")
-    plt.plot(t_eval, analytic_sol, label = "Exact solution", color = "purple")
-    plt.xlabel("Time (s)")
-    plt.ylabel("Temperature (K)")
-    plt.title("Solving Newton's Law of Cooling")
+
 
