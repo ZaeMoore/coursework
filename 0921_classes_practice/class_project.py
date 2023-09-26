@@ -28,14 +28,14 @@ class Longgg():
         if isinstance(value, Longgg):
             return value.sig, value.exp
         elif isinstance(value, float):
-            exp = round(math.log(float))
-            sig = round(float / 10**exp, self.digits)
-            return Longgg(sig, exp)
+            exp = round(math.log(value))
+            sig = round(value / 10**exp, self.digits)
+            return sig, exp
 
     #Add 2 precise long floats
     def __add__(self, other):
-        sig2 = self.to_LongFloat(other)[0]
-        exp2 = self.to_LongFloat(other)[1]
+        sig2 = round(math.log(other))
+        exp2 = round(other / 10**exp, self.digits)
 
         diff = abs(self.exp - exp2) #Difference in exponential values
         if diff == 0:
@@ -54,7 +54,6 @@ class Longgg():
             sum_sig = round(sig_new + sig2, self.digits)
             sum_exp = self.exp
 
-        print(sum_sig + "E" + sum_exp)
         return sum_sig, sum_exp
     
     def __sub__(self, other):
@@ -104,26 +103,23 @@ class Longgg():
 
         new_exp += div_exp
 
-        print(new_sig + "E" + new_exp)
+        #print(new_sig + "E" + new_exp)
         return new_sig, new_exp
 
 
-class Vector([]):
+class Vector():
     #Should be able to add, subtract, multiple, or divide a 1D vector by another 1D vector
     #Will probably need to loop
     #Also make a sort method
-    def __init__(self, vector,  digits):
+    def __init__(self, vector, digits):
         self.digits = digits
         self.vector = vector
         pass
 
     def to_LongFloat(self, value):
-        if isinstance(value, Longgg):
-            return value.sig, value.exp
-        elif isinstance(value, float):
-            exp = round(math.log(float))
-            sig = round(float / 10**exp, self.digits)
-            return Longgg(sig, exp)
+        exp = round(math.log(value))
+        sig = round(value / 10**exp, self.digits)
+        return sig, exp
 
     def __add__(self, vector_other):
         new_vector_sig = []
@@ -132,14 +128,14 @@ class Vector([]):
         sig2_vector = []
         exp1_vector = []
         exp2_vector = []
-        for i in self.vector:
-            sig1_vector.append(self.to_LongFloat(self.vector)[0])
-            exp1_vector.append(self.to_LongFloat(self.vector)[1])
-            sig2_vector.append(self.to_LongFloat(vector_other)[0])
-            exp2_vector.append(self.to_LongFloat(vector_other)[1])
+        i = 0
+        for i in range(len(self.vector)):
+            sig1_vector.append(self.to_LongFloat(self.vector[i])[0])
+            exp1_vector.append(self.to_LongFloat(self.vector[i])[1])
+            sig2_vector.append(self.to_LongFloat(vector_other[i])[0])
+            exp2_vector.append(self.to_LongFloat(vector_other[i])[1])
             new_vector_sig.append(sig1_vector[i] + sig2_vector[i])
             new_vector_exp.append(exp1_vector[i] + exp2_vector[i])
-
         return new_vector_sig, new_vector_exp
     
     def __sub__(self, vector_other):
@@ -196,5 +192,5 @@ class Vector([]):
     def sort(self):
         return self.vector.sort()
 
-long_one = Longgg(sig, exp, digits)
-vector_one = Vector(list_one)
+#long_one = Longgg(sig, exp, digits)
+#vector_one = Vector(list_a, digits)
