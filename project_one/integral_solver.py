@@ -18,8 +18,13 @@ Delete these comments later
 #integ.riemann(step_size, rho, k, rad, r)
 k = 5
 
+#rho(r) is the charge density
+#For this solid sphere, the charge is evenly distributed throughout the sphere
+#K represents any constant
+#To find Q, we must do a spherical integral over rho which simplifies to Q = 4 pi * integ rho(r) * r^2 dr
+
 def rho(r):
-    return k*(r**3)
+    return k*(r**2)
 
 def riemann(step_size, radius, max_r):
     solution_out = []
@@ -27,17 +32,18 @@ def riemann(step_size, radius, max_r):
     r_in = []
     r_out = []
     ro = radius
-    ri = 0
-    while r_out < max_r:
-        new_out = step_size * rho(ro)
-        solution_out.append(new_out)
-        r_out.append(ro)
-        ro += step_size
-    while r_in < radius:
+    ri = step_size #Can't start r at 0, otherise get a divide by 0 error
+    total_sum = 0
+    while ri < radius:
         new_in = step_size * rho(ri)
-        solution_in.append(new_in)
+        total_sum += new_in
+        solution_in.append(total_sum)
         r_in.append(ri)
         ri += step_size
+    while ro < max_r: #Outside of the sphere, the total charge is constant
+        solution_out.append(total_sum)
+        r_out.append(ro)
+        ro += step_size
     return r_in, r_out, solution_in, solution_out
 
 def trap(step_size, radius, max_r):
@@ -46,15 +52,18 @@ def trap(step_size, radius, max_r):
     r_in = []
     r_out = []
     ro = radius
-    ri = 0
-    while r_out < max_r:
-        r_out.append(ro)
-        solution_out.append(0.5 * step_size * (rho(ro) + rho(ro + step_size)))
-        ro += step_size
-    while r_in < radius:
+    ri = step_size
+    total_sum = 0
+    while ri < radius:
         r_in.append(ri)
-        solution_in.append(0.5 * step_size * (rho(ri) + rho(ri + step_size)))
+        new_in = 0.5 * step_size * (rho(ri) + rho(ri + step_size))
+        total_sum += new_in
+        solution_in.append(total_sum)
         ri += step_size
+    while ro < max_r: #Outside of the sphere, the total charge is constant
+        r_out.append(ro)
+        solution_out.append(total_sum)
+        ro += step_size
 
     return r_in, r_out, solution_in, solution_out
 
@@ -64,14 +73,17 @@ def simpson(step_size, radius, max_r):
     r_in = []
     r_out = []
     ro = radius
-    ri = 0
-    while r_out < max_r:
-        solution_out.append((1/6) * (max_r - ro) * (rho(ro) + rho(max_r) + 4 * rho(0.5 * (max_r - ro))))
-        r_out.append(ro)
-        ro += step_size
-    while r_in < radius:    
-        solution_in.append((1/6) * ri * (rho(0) + 4 * rho(0.5 * ri) + rho(ri)))
+    ri = step_size
+    total_sum = 0
+    while ri < radius:
+        new_in = (step_size/6) * (rho(ri) + 4 * rho(0.5 * (ri + ri + step_size)) + rho(ri + step_size))
+        total_sum += new_in
+        solution_in.append(total_sum)
         r_in.append(ri)
         ri += step_size
+    while ro < max_r: #Outside the sphere, the total charge is constant
+        solution_out.append(total_sum)
+        r_out.append(ro)
+        ro += step_size
 
     return r_in, r_out, solution_in, solution_out
