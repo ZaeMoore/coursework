@@ -15,19 +15,19 @@ import scipy as sp
 from scipy.integrate import odeint
 
 k = 3.0 #k is a positive constant related to the type of material and size of the object
-temp_env = 10.0 #Temperature of environment in Kelvin
 
-def func(t, y):
+
+def func(t, y, temp_env):
     dydt = -k * (y-temp_env)
     return dydt
 
-def euler(h, t_0, max_t, temp_0):
+def euler(h, t_0, max_t, temp_0, temp_env):
     t = t_0
     t_list = [t_0]
     temp = temp_0
     temp_eu = [temp_0]
     while t <= max_t:
-        new_temp = h * func(t, temp)
+        new_temp = h * func(t, temp, temp_env)
         temp = temp + new_temp
         temp_eu.append(temp)
         t += h
@@ -35,15 +35,15 @@ def euler(h, t_0, max_t, temp_0):
 
     return temp_eu, t_list
 
-def rungekutta(h, t_0, max_t, temp_0): #h is step size
+def rungekutta(h, t_0, max_t, temp_0, temp_env): #h is step size
     t = t_0
     temp = temp_0
     temp_rk = [temp_0]
     while t <= max_t:
-        k1 = func(t, temp)
-        k2 = func(t + 0.5 * h, temp + 0.5 * k1 * h)
-        k3 = func(t + 0.5 * h, temp + 0.5 * k2 * h)
-        k4 = func(t + h, temp + k3 * h)
+        k1 = func(t, temp, temp_env)
+        k2 = func(t + 0.5 * h, temp + 0.5 * k1 * h, temp_env)
+        k3 = func(t + 0.5 * h, temp + 0.5 * k2 * h, temp_env)
+        k4 = func(t + h, temp + k3 * h, temp_env)
 
         temp = temp + (h/6) * (k1 + 2 * k2 + 2 * k3 + k4)
         temp_rk.append(temp)
@@ -51,12 +51,12 @@ def rungekutta(h, t_0, max_t, temp_0): #h is step size
     
     return temp_rk
 
-def scipy_sol(h, max_t, y_0):
+def scipy_sol(h, max_t, y_0, temp_env):
     t_eval = np.arange(0, max_t, h)
-    sci_sol = odeint(func, y_0, t_eval)
+    sci_sol = odeint(func, y_0, t_eval, args=(temp_env,))
     return t_eval, sci_sol
 
-def analytic_sol(h, y_0, max_t):
+def analytic_sol(h, y_0, max_t, temp_env):
     t = np.arange(0, max_t, h)
     c = temp_env - y_0
     solution = temp_env - c * np.exp(-k * t)

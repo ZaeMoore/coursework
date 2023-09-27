@@ -67,17 +67,18 @@ if whatchadoin == "1":
 elif whatchadoin == "2":
 
     t_0 = 0 #Initial time
-    temp_0 = 40 #Initial temperature in Kelvin
+    temp_0 = int(input("Initial temperature of object (K): "))
+    temp_env = int(input("Initial temperature of environment (K): "))
     time = t_0
 
     step_size = float(input("Choose the step size: "))
-    max_t = int(input("Maximum time value (s) = "))
+    max_t = int(input("Maximum time value (s): "))
 
-    temp_eu, t_list = ode.euler(step_size, t_0, max_t, temp_0)
-    temp_rk = ode.rungekutta(step_size, t_0, max_t, temp_0)
+    temp_eu, t_list = ode.euler(step_size, t_0, max_t, temp_0, temp_env)
+    temp_rk = ode.rungekutta(step_size, t_0, max_t, temp_0, temp_env)
 
-    t_list_sci, sci_sol = ode.scipy_sol(step_size, max_t, temp_0)
-    analytic_sol, analytic_time = ode.analytic_sol(step_size, temp_0, max_t)
+    t_list_sci, sci_sol = ode.scipy_sol(step_size, max_t, temp_0, temp_env)
+    analytic_sol, analytic_time = ode.analytic_sol(step_size, temp_0, max_t, temp_env)
 
     #Plot rk, eu, and scipy solutions
     plt.figure(1)
