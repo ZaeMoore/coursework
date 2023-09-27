@@ -28,12 +28,16 @@ if whatchadoin == "1":
     step_size = float(input("Choose the step size: "))
 
     #These return the total charge Q at each r
-    rr_in, rr_out, rQ_in, rQ_out = integ.riemann(step_size, rad, max_r)
+    rr_in, rr_out, rQ_in, rQ_out, r_total = integ.riemann(step_size, rad, max_r)
     
-    tr_in, tr_out, tQ_in, tQ_out = integ.trap(step_size, rad, max_r)
+    tr_in, tr_out, tQ_in, tQ_out, t_total = integ.trap(step_size, rad, max_r)
 
-    sr_in, sr_out, sQ_in, sQ_out =integ.simpson(step_size, rad, max_r)
+    sr_in, sr_out, sQ_in, sQ_out, s_total =integ.simpson(step_size, rad, max_r)
 
+    sci_trap_Q = integ.scipy_trap(step_size, rad)
+    sci_simp_Q = integ.scipy_simp(step_size, rad)
+
+    ar_in, ar_out, aE_in, aE_out, aq_tot = integ.analytical(step_size, rad, max_r)
     #Now to define E for each of these using Gauss' Law
     #E = Q/r**2 
     rE_in, rE_out, tE_in, tE_out, sE_in, sE_out = [], [], [], [], [], []
@@ -50,13 +54,31 @@ if whatchadoin == "1":
     for i in range(len(sQ_out)):
         sE_out.append(sQ_out[i]/ ((sr_out[i])**2))
 
+
+    plt.figure(3)
+    x_scatter = (1,2,3,4,5,6)
+    y_scatter = (r_total, t_total, s_total, sci_trap_Q, sci_simp_Q, aq_tot)
+    plt.scatter(x_scatter, y_scatter)
+    plt.annotate("Riemann", (1, r_total))
+    plt.annotate("Trapezoid", (2, t_total))
+    plt.annotate("Simpson", (3, s_total))
+    plt.annotate("Scipy Trapezoid", (4, sci_trap_Q))
+    plt.annotate("Scipy Simpson", (5, sci_simp_Q))
+    plt.annotate("Analytical", (6, aq_tot))
+    plt.ylabel("Total Charge")
+    plt.title("Total charge Q in sphere according to different integration methods")
+    plt.savefig("charge_integ")
+
+
     plt.figure(2)
-    plt.plot(rr_in, rE_in, label = "Riemann Sum inside Sphere", color = "blue", linestyle = "dashdot", linewidth = 2)
-    plt.plot(rr_out, rE_out, label = "Riemann Sum outside Sphere", color = "cyan", linestyle = "dashdot", linewidth = 2)
-    plt.plot(tr_in, tE_in, label = "Trapezoidal Sum inside Sphere", color = "purple", linestyle = "dashed", linewidth = 2)
-    plt.plot(tr_out, tE_out, label = "Trapezoidal Sum outside Sphere", color = "magenta", linestyle = "dashed", linewidth = 2)
-    plt.plot(sr_in, sE_in, label = "Simpson Sum inside Sphere", color = "red", linestyle = "dotted", linewidth = 2)
-    plt.plot(sr_out, sE_out, label = "Simpson Sum outside Sphere", color = "orange", linestyle = "dotted", linewidth = 2)
+    plt.plot(rr_in, rE_in, label = "Riemann Sum inside Sphere", color = "blue", linestyle = "dashdot", linewidth = 3)
+    plt.plot(rr_out, rE_out, label = "Riemann Sum outside Sphere", color = "cyan", linestyle = "dashdot", linewidth = 3)
+    plt.plot(tr_in, tE_in, label = "Trapezoidal Sum inside Sphere", color = "purple", linestyle = "dashed", linewidth = 3)
+    plt.plot(tr_out, tE_out, label = "Trapezoidal Sum outside Sphere", color = "magenta", linestyle = "dashed", linewidth = 3)
+    plt.plot(sr_in, sE_in, label = "Simpson Sum inside Sphere", color = "red", linestyle = "dotted", linewidth = 3)
+    plt.plot(sr_out, sE_out, label = "Simpson Sum outside Sphere", color = "orange", linestyle = "dotted", linewidth = 3)
+    plt.plot(ar_in, aE_in, label = "Analytical Solution inside Sphere", color = "black", linewidth = 1)
+    plt.plot(ar_out, aE_out, label = "Analytical Solution outside Sphere", color = "black", linewidth = 1)
     plt.xlabel("r (m)")
     plt.ylabel("E-field")
     plt.legend()

@@ -3,19 +3,9 @@ Integral Solver
 you must implement an integrator using the simple riemann sum, the trapezoidal rule, 
 and simpson's rule. In the case of the trapezoidal and simpson's rule, compare to 
 the similar implementations in Scipy. 
-3 options: Riemann, trapezoidal, simpson's
-if t or s, compare to scipy's implementations
-Delete these comments later
 '''
-#rho(r) = kr**3
-#Find Q using integral solver
-#Set R = 10
-#For inside sphere, Q is integrated from 0 to r
-#For outside sphere, Q is integrated from 0 to 10
-#E = Q/(r**2) 
-#Check that E_in = E_out at r = 10
-#Check that E_out goes to 0 at r=inf
-#integ.riemann(step_size, rho, k, rad, r)
+import scipy.integrate as integrate
+import numpy as np
 k = 5
 
 #rho(r) is the charge density
@@ -44,7 +34,7 @@ def riemann(step_size, radius, max_r):
         solution_out.append(total_sum)
         r_out.append(ro)
         ro += step_size
-    return r_in, r_out, solution_in, solution_out
+    return r_in, r_out, solution_in, solution_out, total_sum
 
 def trap(step_size, radius, max_r):
     solution_out = []
@@ -65,7 +55,7 @@ def trap(step_size, radius, max_r):
         solution_out.append(total_sum)
         ro += step_size
 
-    return r_in, r_out, solution_in, solution_out
+    return r_in, r_out, solution_in, solution_out, total_sum
 
 def simpson(step_size, radius, max_r):
     solution_out = []
@@ -86,4 +76,22 @@ def simpson(step_size, radius, max_r):
         r_out.append(ro)
         ro += step_size
 
-    return r_in, r_out, solution_in, solution_out
+    return r_in, r_out, solution_in, solution_out, total_sum
+
+def scipy_trap(step_size, radius):
+    r = np.arange(0, radius, step_size)
+    sci_trap = integrate.trapezoid(rho(r))
+    return sci_trap
+
+def scipy_simp(step_size, radius):
+    r = np.arange(0, radius, step_size)
+    sci_simp = integrate.simpson(rho(r))
+    return sci_simp
+
+def analytical(step_size, radius, max_r):
+    total_Q = k/3
+    r_in = np.arange(step_size, radius, step_size)
+    r_out = np.arange(radius, max_r, step_size)
+    e_in = k/3 * r_in
+    e_out = k/3 * (1/r_out**2)
+    return r_in, r_out, e_in, e_out, total_Q
