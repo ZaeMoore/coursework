@@ -15,6 +15,8 @@ sig = 10
 exp = 4
 digits = 2
 list_one = [0, 1, 2, 3]
+import matplotlib.pyplot as plt
+import timeit
 
 class Longgg():
 
@@ -196,5 +198,50 @@ class Vector():
         
         return x
 
-#long_one = Longgg(sig, exp, digits)
-#vector_one = Vector(list_a, digits)
+    def mergesort(self, list):
+        x = list
+        n = len(x)
+        if n > 1:
+            mid = n // 2
+            left = x[:mid]
+            right = x[mid:]
+
+            #Repeat the splitting and sorting for each half
+            self.mergesort(left)
+            self.mergesort(right)
+        
+            i = j = k = 0
+
+            while i < len(left) and j < len(right):
+                if left[i] < right[j]:
+                    x[k]=left[i]
+                    i=i+1
+                else:
+                    x[k]=right[j]
+                    j=j+1
+                k=k+1
+
+            while i < len(left):
+                x[k]=left[i]
+                i=i+1
+                k=k+1
+
+            while j < len(right):
+                x[k]=right[j]
+                j=j+1
+                k=k+1
+        return x
+    
+    def sort_compare(self):
+        n = len(self.vector)
+        y1 = timeit.timeit("self.sort()")
+        y2 = timeit.timeit("self.mergesort()")
+        x = (1, 2)
+        y = (y1, y2)
+        plt.figure(1)
+        plt.scatter(x, y)
+        plt.annotate("Bubble sort", (1, y1))
+        plt.annotate("Merge sort", (2, y2))
+        plt.savefig("sortcompare")
+        print("Plot for time to sort list of length {n}", n=n)
+    
