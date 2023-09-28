@@ -1,12 +1,8 @@
 '''
 ODE Solver
-You must implement an ODE integrator/evolver by hand. You should implement both 
-Euler's method and 4th order Runge-kutta (you do not need to derive the weights). 
-You must also compare to one provided by the Scipy library. 
+Methods for Euler's method, 4th order Runge-kutta method, scipy's solution, and analytical solution
+Returns the solutions to the main script
 '''
-#Newton's law of Cooling?
-#https://en.wikipedia.org/wiki/Newton%27s_law_of_cooling
-#https://knowledge.carolina.com/discipline/physical-science/physics/newtons-law-of-cooling/
 import numpy as np
 import scipy as sp
 from scipy.integrate import odeint
@@ -50,7 +46,7 @@ def rungekutta(h, t_0, max_t, temp_0, temp_env): #h is step size
 
 def scipy_sol(h, max_t, y_0, temp_env):
     t_eval = np.arange(0, max_t, h)
-    sci_sol = odeint(func, y_0, t_eval, args=(temp_env,))
+    sci_sol = odeint(func, y_0, t_eval, args=(temp_env,), tfirst=True)
     return t_eval, sci_sol
 
 def analytic_sol(h, y_0, max_t, temp_env):
