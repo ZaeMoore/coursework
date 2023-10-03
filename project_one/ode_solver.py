@@ -7,7 +7,7 @@ import numpy as np
 import scipy as sp
 from scipy.integrate import odeint
 
-k = 3.0  # k is a positive constant related to the type of material and size of the object
+k = 3.0 # k is a positive constant related to the type of material and size of the object
 
 
 def func(t, y, temp_env):

@@ -11,7 +11,7 @@ import numpy as np
 k = 5
 
 
-# The equation to integrate over is rho(r) * r**2 * dr because we are integrating in spherical coordinates
+# The equation to integrate over is rho(r) * r**3 * dr because we are integrating in spherical coordinates
 def rho(r):
     return k * (r**3)
 
