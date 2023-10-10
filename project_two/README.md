@@ -18,3 +18,12 @@ Probability of it being electron neutrino or muon neutrino (only doing 2 flavors
 Depending on what type it is, there's some probability for what the final state is
 Depending on what is produces, we have an electric field that will curve the products into the field cage
 Solve the ODE to find the x, y, z value of the final products at each point in time and make a 3D event display plot!!!!
+
+Pseudocode:
+
+Main script, takes user input and passes parameters and accepted results from other scripts
+final_state script does the monte carlo simulation to determine the flavor of the neutrino and the final state particles
+after the interaction. Returns this data and the momentum of the final state particles to the main script
+Main script passes this to another script that determines the trajectory of the final state particles in a detector with an electric field 
+that directs these particles towards a pixel detector
+Results: Location of hits on the pixel detector, histogram of flavor of neutrinos
