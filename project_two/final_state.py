@@ -2,3 +2,105 @@
 Monte Carlo simulation for neutrino flavor and final state
 Returns stuff to main script
 """
+import math
+import numpy as np
+
+class FinalState():
+    def __init__(self, e_i, flavor_i, dist):
+        """Initializing class to determine information about the final state after the collision
+        Parameters:
+        Initial energy (in MeV)
+        Initial flavor (True for electron, False for muon)
+        Distance from starting point to detector
+        """
+        self.e_i = e_i
+        self.flavor_i = flavor_i
+        self.dist = dist
+        pass
+
+    def neutrino_flavor(self):
+        """Determine the flavor of the neutrino at the point of collision, assuming 2 flavor options
+        Parameters:
+        Initial flavor
+        Distance from starting point to detector
+        Returns:
+        Flavor of neutrino
+        """
+        theta_12 = 33.82 #deg
+        delta_m12_sq = 7.53*(10**(-5)) #ev^2
+        prob_of_oscillation = 0.855*(math.sin(delta_m12_sq*self.dist/(4*self.e_i)))
+
+        number_trials = 10000
+        random_number = np.random.uniform(0, 1, size=number_trials) #10,000 possible neutrinos
+
+        did_they_oscillate = random_number <= prob_of_oscillation #Of the 10,000, did they oscillate? true/false
+        
+        yes_they_oscillated = did_they_oscillate.sum() #Number that oscillated
+
+        if yes_they_oscillated >= number_trials/2:
+            #If the neutrino oscillated, return the other flavor
+            return not self.flavor_i
+
+        else:
+            #If the neutrino did not oscillate, return the initial flavor
+            return self.flavor_i
+
+    def final_particles(self):
+        """Monte Carlo simulation to determine the final state particles of the neutrino Argon collision
+        Parameters:
+        Initial energy of neutrino
+        Flavor of neutrino from neutrino_flavor
+        Returns:
+        Final state particle types
+        Final state particle charge
+        Final state particle momenta
+        """
+        qes_interaction = False
+        dis_interaction = False
+        pi_interaction = False
+        #import the .csv files to desmos and get a best fit function for qel, dis, pi resonance
+        def qes(e):
+            return 1 #replace with function
+        
+        def dis(e):
+            return 1
+        
+        def pi(e):
+            return 1
+        
+        qes_prob = qes(self.e_i)
+        dis_prob = dis(self.e_i)
+        pi_prob = pi(self.e_i)
+        
+        sum_prob = qes_prob + dis_prob + pi_prob
+
+        number_trials = 10000
+        random_number = np.random.uniform(0, sum_prob, size=number_trials)
+
+        qes_truth = random_number <= qes_prob
+        dis_truth = random_number >= qes_prob and random_number <= (qes_prob + dis_prob)
+        pi_truth = random_number >= (qes_prob + dis_prob) and random_number <= sum_prob
+
+        qes_yes = qes_truth.sum()
+        dis_yes = dis_truth.sum()
+        pi_yes = pi_truth.sum()
+
+        #Comparing these, we can find out what type of interaction it is
+        if qes_yes > dis_yes and qes_yes > pi_yes:
+            #This is a quasi-elastic scattering interaction
+            qes_interaction = True
+
+
+        if dis_yes > qes_yes and dis_yes > pi_yes:
+            #This is a deep inelastic scattering interaction
+            dis_interaction = True
+
+        else:
+            #This is a pi resonance interaction
+            pi_interaction = True
+
+        #We now know what type of interaction it is and can determine the final state particles that come from this collision!
+        
+
+#Itll either be DIS, qel, or pi resonance. Which one it is depends on the initial energy, use figure 2.6 from the neutrino basics book. Only CC
+#QE could hit proton or neutron, say it's a 50/50
