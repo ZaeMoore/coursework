@@ -58,20 +58,26 @@ class FinalState():
         Final state particle momenta
         """
         flavor = self.neutrino_flavor() #True for electron, False for muon
-        qes_interaction = False
-        dis_interaction = False
-        pi_interaction = False
+
         def qes(e):
-            """This function defines the probability of a quasi-elastic scatteringe event
+            """This function defines the probability of a quasi-elastic scattering event
             happening based on the energy of the initial neutrino. This function was derived
             from real neutrino experiments
             """
             return 0.2247*(e**-0.5)
         
         def dis(e):
+            """This function defines the probability of a deep inelastic scattering event
+            happening based on the energy of the initial neutrino. This function was derived
+            from real neutrino experiments
+            """
             return -85064.6*(math.log(e+9.09))**(-14.1465) + 0.71
         
         def pi(e):
+            """This function defines the probability of a pi resonance event
+            happening based on the energy of the initial neutrino. This function was derived
+            from real neutrino experiments
+            """
             return 0.1593*(e**-0.5)
         
         qes_prob = qes(self.e_i)
@@ -91,30 +97,27 @@ class FinalState():
         dis_yes = dis_truth.sum()
         pi_yes = pi_truth.sum()
 
-        final_state_particles = []
-        final_particles_energy = []
-        final_particles_charge = []
-        final_particles_mass = [] #In MeV/c^2
+        final_state_particles = [] #Names
+        final_particles_energy = [] #MeV
+        final_particles_charge = [] #+1 or -1
+        final_particles_mass = [] #MeV/c^2
 
         #Comparing these, we can find out what type of interaction it is
-        if qes_yes > dis_yes and qes_yes > pi_yes:
-            #This is a quasi-elastic scattering interaction
-            qes_interaction = True
+        if qes_yes > dis_yes and qes_yes > pi_yes:          
+            interaction_type = "QES" #This is a quasi-elastic scattering interaction
             if self.lepton_number == 1: #Neutrino
-                if flavor == True: #electron type
+                if flavor == True: #electron flavor
                     final_state_particles = ["electron", "proton"]
-                    final_particles_mass = [0.511, 938.272]
-                #Final state is lepton and proton
-                if flavor == False:
+                if flavor == False: #muon flavor
+                    final_state_particles = ["muon", "proton"]
+            if self.lepton_number == -1: #AntiNeutrino
+                if flavor == True: #electron flavor
+                    final_state_particles = ["electron", "proton"]
+                if flavor == False: #muon flavor
                     final_state_particles = ["muon", "proton"]
 
-            energy_distribution = np.random.uniform(0,1)
-            final_particles_energy[0] = final_particles_mass[0] + self.e_i*energy_distribution
-            final_particles_energy[1] = final_particles_mass[1] + self.e_i*(1-energy_distribution)
-
         if dis_yes > qes_yes and dis_yes > pi_yes:
-            #This is a deep inelastic scattering interaction
-            dis_interaction = True
+            interaction_type = "DIS" #This is a deep inelastic scattering interaction
             if self.lepton_number == 1: #Neutrino
                 if flavor == True:
                     final_state_particles = ["electron"]
@@ -127,19 +130,90 @@ class FinalState():
                     final_state_particles = ["antimuon"]
 
         else:
-            #This is a pi resonance interaction
-            pi_interaction = True
-            random_chance = np.random.uniform(0, 1) #If >.50, hits proton. If <.50, hit neutron
+            interaction_type = "pi" #This is a pi resonance interaction
+            random_chance = np.random.uniform(0, 1) #Does the neutrino hit a proton or neutron?
+            random_second_chance = np.random.uniform(0, 1) #Picks between 2 possible final state options where necessary
             if self.lepton_number == 1: #Neutrino
                 if flavor == True: #electron flavor
                     if random_chance >= 0.50: #Hits proton
                         final_state_particles = ["electron", "proton", "pi+"]
-                #Does it hit proton or neutron? 50/50 chance
+                    if random_chance < 0.50: #Hits neutron
+                        if random_second_chance >= 0.50: #Produces proton
+                            final_state_particles = ["electron", "proton", "pi0"]
+                        if random_second_chance < 0.50: #Produces neutron
+                            final_state_particles = ["electron", "neutron", "pi+"]
+                if flavor == False: #muon flavor
+                    if random_chance >= 0.50: #Hits proton
+                        final_state_particles = ["muon", "proton", "pi+"]
+                    if random_chance < 0.50: #Hits neutron
+                        if random_second_chance >= 0.50: #Produces proton
+                            final_state_particles = ["muon", "proton", "pi0"]
+                        if random_second_chance < 0.50: #Produces neutron
+                            final_state_particles = ["muon", "neutron", "pi+"]
+            if self.lepton_number == -1: #AntiNeutrino
+                if flavor == True: #electron flavor
+                    if random_chance >= 0.50: #Hits proton
+                        if random_second_chance >= 0.50: #Produces proton
+                            final_state_particles = ["positron", "proton", "pi-"]
+                        if random_second_chance < 0.50: #Produces neutron
+                            final_state_particles = ["positron", "neutron", "pi0"]  
+                    if random_chance < 0.50: #Hits neutron
+                        final_state_particles = ["positron", "neutron", "pi-"]
+                if flavor == False: #muon flavor
+                    if random_chance >= 0.50: #Hits proton
+                        if random_second_chance >= 0.50: #Produces proton
+                            final_state_particles = ["antimuon", "proton", "pi-"]
+                        if random_second_chance < 0.50: #Produces neutron
+                            final_state_particles = ["antimuon", "neutron", "pi0"]  
+                    if random_chance < 0.50: #Hits neutron
+                        final_state_particles = ["anitmuon", "neutron", "pi-"]
 
+            #Percent of neutrino energy that is distributed to the final state particles on top of their rest mass energy
+            energy_distribution = np.random.uniform(0.25, 0.75)
+            nu_energy_given = energy_distribution/len(final_state_particles) #each particle gets the same energy to simplify the problem
 
+            i = 0
+            #electron, positron, muon, antimuon, proton, neutron, pi-, pi0, pi+
+            while i < len(final_state_particles):
+                if final_state_particles[i] == "electron":
+                    final_particles_mass[i] = 0.511
+                    final_particles_charge[i] = -1
 
-        #We now know what type of interaction it is and can determine the final state particles that come from this collision!
-        
+                if final_state_particles[i] == "positron":
+                    final_particles_mass[i] = 0.511
+                    final_particles_charge[i] = 1
 
-#Itll either be DIS, qel, or pi resonance. Which one it is depends on the initial energy, use figure 2.6 from the neutrino basics book. Only CC
-#QE could hit proton or neutron, say it's a 50/50
+                if final_state_particles[i] == "muon":
+                    final_particles_mass[i] = 105.7
+                    final_particles_charge[i] = -1
+
+                if final_state_particles[i] == "antimuon":
+                    final_particles_mass[i] = 105.7
+                    final_particles_charge[i] = 1
+            
+                if final_state_particles[i] == "proton":
+                    final_particles_mass[i] = 938.272
+                    final_particles_charge[i] = 1
+
+                if final_state_particles[i] == "neutron":
+                    final_particles_mass[i] = 938.272
+                    final_particles_charge[i] = 0
+                
+                if final_state_particles[i] == "pi+":
+                    final_particles_mass[i] = 938.272
+                    final_particles_charge[i] = 1
+
+                if final_state_particles[i] == "pi-":
+                    final_particles_mass[i] = 938.272
+                    final_particles_charge[i] = -1
+
+                if final_state_particles[i] == "pi0":
+                    final_particles_mass[i] = 938.272
+                    final_particles_charge[i] = 0
+
+                #energy distribution
+                final_particles_energy[i] = final_particles_mass[i] + self.e_i*nu_energy_given
+
+                i+=1
+
+        return final_state_particles, final_particles_mass, final_particles_energy, final_particles_charge, interaction_type
