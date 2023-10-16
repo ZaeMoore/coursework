@@ -58,15 +58,18 @@ class FinalState():
         qes_interaction = False
         dis_interaction = False
         pi_interaction = False
-        #import the .csv files to desmos and get a best fit function for qel, dis, pi resonance
         def qes(e):
-            return 1 #replace with function
+            """This function defines the probability of a quasi-elastic scatteringe event
+            happening based on the energy of the initial neutrino. This function was derived
+            from real neutrino experiments
+            """
+            return 0.2247*(e**-0.5)
         
         def dis(e):
-            return 1
+            return -85064.6*(math.log(e+9.09))**(-14.1465) + 0.71
         
         def pi(e):
-            return 1
+            return 0.1593*(e**-0.5)
         
         qes_prob = qes(self.e_i)
         dis_prob = dis(self.e_i)
@@ -89,6 +92,7 @@ class FinalState():
         if qes_yes > dis_yes and qes_yes > pi_yes:
             #This is a quasi-elastic scattering interaction
             qes_interaction = True
+            
 
 
         if dis_yes > qes_yes and dis_yes > pi_yes:
