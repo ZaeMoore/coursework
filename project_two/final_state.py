@@ -6,16 +6,18 @@ import math
 import numpy as np
 
 class FinalState():
-    def __init__(self, e_i, flavor_i, dist):
+    def __init__(self, e_i, flavor_i, lepton_number, dist):
         """Initializing class to determine information about the final state after the collision
         Parameters:
         Initial energy (in MeV)
         Initial flavor (True for electron, False for muon)
         Distance from starting point to detector
+        Lepton number (1 for neutrino, -1 for antineutrino)
         """
         self.e_i = e_i
         self.flavor_i = flavor_i
         self.dist = dist
+        self.lepton_number = lepton_number
         pass
 
     def neutrino_flavor(self):
@@ -49,12 +51,13 @@ class FinalState():
         """Monte Carlo simulation to determine the final state particles of the neutrino Argon collision
         Parameters:
         Initial energy of neutrino
-        Flavor of neutrino from neutrino_flavor
+        Flavor of neutrino from neutrino_flavor (True for electron, False for muon)
         Returns:
         Final state particle types
         Final state particle charge
         Final state particle momenta
         """
+        flavor = self.neutrino_flavor() #True for electron, False for muon
         qes_interaction = False
         dis_interaction = False
         pi_interaction = False
@@ -88,20 +91,52 @@ class FinalState():
         dis_yes = dis_truth.sum()
         pi_yes = pi_truth.sum()
 
+        final_state_particles = []
+        final_particles_energy = []
+        final_particles_charge = []
+        final_particles_mass = [] #In MeV/c^2
+
         #Comparing these, we can find out what type of interaction it is
         if qes_yes > dis_yes and qes_yes > pi_yes:
             #This is a quasi-elastic scattering interaction
             qes_interaction = True
-            
+            if self.lepton_number == 1: #Neutrino
+                if flavor == True: #electron type
+                    final_state_particles = ["electron", "proton"]
+                    final_particles_mass = [0.511, 938.272]
+                #Final state is lepton and proton
+                if flavor == False:
+                    final_state_particles = ["muon", "proton"]
 
+            energy_distribution = np.random.uniform(0,1)
+            final_particles_energy[0] = final_particles_mass[0] + self.e_i*energy_distribution
+            final_particles_energy[1] = final_particles_mass[1] + self.e_i*(1-energy_distribution)
 
         if dis_yes > qes_yes and dis_yes > pi_yes:
             #This is a deep inelastic scattering interaction
             dis_interaction = True
+            if self.lepton_number == 1: #Neutrino
+                if flavor == True:
+                    final_state_particles = ["electron"]
+                if flavor == False:
+                    final_state_particles = ["muon"]
+            if self.lepton_number == -1: #Antineutrino
+                if flavor == True:
+                    final_state_particles = ["positron"]
+                if flavor == False:
+                    final_state_particles = ["antimuon"]
 
         else:
             #This is a pi resonance interaction
             pi_interaction = True
+            random_chance = np.random.uniform(0, 1) #If >.50, hits proton. If <.50, hit neutron
+            if self.lepton_number == 1: #Neutrino
+                if flavor == True: #electron flavor
+                    if random_chance >= 0.50: #Hits proton
+                        final_state_particles = ["electron", "proton", "pi+"]
+                #Does it hit proton or neutron? 50/50 chance
+
+
 
         #We now know what type of interaction it is and can determine the final state particles that come from this collision!
         
