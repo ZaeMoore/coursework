@@ -4,6 +4,7 @@ Returns stuff to main script
 """
 import math
 import numpy as np
+from statistics import NormalDist
 
 class FinalState():
     def __init__(self, e_i, flavor_i, lepton_number, dist):
@@ -28,24 +29,34 @@ class FinalState():
         Returns:
         Flavor of neutrino
         """
-        theta_12 = 33.82 #deg
         delta_m12_sq = 7.53*(10**(-5)) #ev^2
         prob_of_oscillation = 0.855*(math.sin(delta_m12_sq*self.dist/(4*self.e_i)))
 
-        number_trials = 10000
-        random_number = np.random.uniform(0, 1, size=number_trials) #10,000 possible neutrinos
+        random_number = np.random.uniform(0, 1)
 
-        did_they_oscillate = random_number <= prob_of_oscillation #Of the 10,000, did they oscillate? true/false
-        
-        yes_they_oscillated = did_they_oscillate.sum() #Number that oscillated
+        did_they_oscillate = random_number <= prob_of_oscillation
 
-        if yes_they_oscillated >= number_trials/2:
+        if did_they_oscillate == True:
             #If the neutrino oscillated, return the other flavor
             return not self.flavor_i
 
         else:
             #If the neutrino did not oscillate, return the initial flavor
             return self.flavor_i
+        
+    def energy_distribution(self):
+        """Determine the energy of the individual neutrino based on a Gaussian distribution of
+        the beam energy
+        Parameters:
+        Beam energy
+        Returns:
+        Energy of neutrino
+        """
+        random_number = np.random.uniform(0, 1)
+        e_nu = NormalDist(mu=self.e_i, sigma=10).inv_cdf(random_number)
+        return abs(e_nu)
+
+        
 
     def final_particles(self):
         """Monte Carlo simulation to determine the final state particles of the neutrino Argon collision
@@ -57,66 +68,73 @@ class FinalState():
         Final state particle charge
         Final state particle momenta
         """
-        flavor = self.neutrino_flavor() #True for electron, False for muon
 
-        def qes(e):
+        flavor = self.neutrino_flavor() #True for electron, False for muon
+        e_nu = self.energy_distribution()
+
+        def qes(x):
             """This function defines the probability of a quasi-elastic scattering event
             happening based on the energy of the initial neutrino. This function was derived
             from real neutrino experiments
             """
-            return 0.2247*(e**-0.5)
+            return 2*x*(math.e**(-(x**2)))
         
-        def dis(e):
+        def dis(x):
             """This function defines the probability of a deep inelastic scattering event
             happening based on the energy of the initial neutrino. This function was derived
             from real neutrino experiments
             """
-            return -85064.6*(math.log(e+9.09))**(-14.1465) + 0.71
+            if x <= 0.75:
+                return 0
+            else:
+                return -math.e**(-x+0.5)+0.8
         
-        def pi(e):
+        def pi(x):
             """This function defines the probability of a pi resonance event
             happening based on the energy of the initial neutrino. This function was derived
             from real neutrino experiments
             """
-            return 0.1593*(e**-0.5)
+            if x <= 0.25:
+                return 0
+            else:
+                return 0.25*x*math.e**(-(x-0.75)**2)
         
-        qes_prob = qes(self.e_i)
-        dis_prob = dis(self.e_i)
-        pi_prob = pi(self.e_i)
+        gev = e_nu/1000 
+
+        qes_prob = qes(gev)
+        dis_prob = dis(gev)
+        pi_prob = pi(gev)
         
         sum_prob = qes_prob + dis_prob + pi_prob
 
-        number_trials = 10000
-        random_number = np.random.uniform(0, sum_prob, size=number_trials)
+        random_number = np.random.uniform(0, sum_prob)
 
         qes_truth = random_number <= qes_prob
-        dis_truth = random_number >= qes_prob and random_number <= (qes_prob + dis_prob)
-        pi_truth = random_number >= (qes_prob + dis_prob) and random_number <= sum_prob
-
-        qes_yes = qes_truth.sum()
-        dis_yes = dis_truth.sum()
-        pi_yes = pi_truth.sum()
+        dis_truth = (random_number > qes_prob)&(random_number <= (qes_prob + dis_prob))
+        pi_truth = (random_number > (qes_prob + dis_prob))&(random_number <= sum_prob)
 
         final_state_particles = [] #Names
         final_particles_energy = [] #MeV
         final_particles_charge = [] #+1 or -1
-        final_particles_mass = [] #MeV/c^2
+        final_particles_mass = [] #MeV Natural units babyyyy
 
         #Comparing these, we can find out what type of interaction it is
-        if qes_yes > dis_yes and qes_yes > pi_yes:          
+        if qes_truth:       
             interaction_type = "QES" #This is a quasi-elastic scattering interaction
             if self.lepton_number == 1: #Neutrino
+                mass_i = 940.6 #Mass of the neutron target
                 if flavor == True: #electron flavor
                     final_state_particles = ["electron", "proton"]
                 if flavor == False: #muon flavor
                     final_state_particles = ["muon", "proton"]
             if self.lepton_number == -1: #AntiNeutrino
+                mass_i = 938.272 #Mass of proton target
                 if flavor == True: #electron flavor
-                    final_state_particles = ["electron", "proton"]
+                    final_state_particles = ["positron", "neutron"]
                 if flavor == False: #muon flavor
-                    final_state_particles = ["muon", "proton"]
+                    final_state_particles = ["antimuon", "neutron"]
 
-        if dis_yes > qes_yes and dis_yes > pi_yes:
+        if dis_truth:
             interaction_type = "DIS" #This is a deep inelastic scattering interaction
             if self.lepton_number == 1: #Neutrino
                 if flavor == True:
@@ -129,23 +147,27 @@ class FinalState():
                 if flavor == False:
                     final_state_particles = ["antimuon"]
 
-        else:
+        if pi_truth:
             interaction_type = "pi" #This is a pi resonance interaction
             random_chance = np.random.uniform(0, 1) #Does the neutrino hit a proton or neutron?
             random_second_chance = np.random.uniform(0, 1) #Picks between 2 possible final state options where necessary
             if self.lepton_number == 1: #Neutrino
                 if flavor == True: #electron flavor
                     if random_chance >= 0.50: #Hits proton
+                        mass_i = 938.272
                         final_state_particles = ["electron", "proton", "pi+"]
                     if random_chance < 0.50: #Hits neutron
+                        mass_i = 940.6
                         if random_second_chance >= 0.50: #Produces proton
                             final_state_particles = ["electron", "proton", "pi0"]
                         if random_second_chance < 0.50: #Produces neutron
                             final_state_particles = ["electron", "neutron", "pi+"]
                 if flavor == False: #muon flavor
                     if random_chance >= 0.50: #Hits proton
+                        mass_i = 938.272
                         final_state_particles = ["muon", "proton", "pi+"]
                     if random_chance < 0.50: #Hits neutron
+                        mass_i = 940.6
                         if random_second_chance >= 0.50: #Produces proton
                             final_state_particles = ["muon", "proton", "pi0"]
                         if random_second_chance < 0.50: #Produces neutron
@@ -153,67 +175,79 @@ class FinalState():
             if self.lepton_number == -1: #AntiNeutrino
                 if flavor == True: #electron flavor
                     if random_chance >= 0.50: #Hits proton
+                        mass_i = 938.272
                         if random_second_chance >= 0.50: #Produces proton
                             final_state_particles = ["positron", "proton", "pi-"]
                         if random_second_chance < 0.50: #Produces neutron
                             final_state_particles = ["positron", "neutron", "pi0"]  
                     if random_chance < 0.50: #Hits neutron
+                        mass_i = 940.6
                         final_state_particles = ["positron", "neutron", "pi-"]
                 if flavor == False: #muon flavor
                     if random_chance >= 0.50: #Hits proton
+                        mass_i = 938.272
                         if random_second_chance >= 0.50: #Produces proton
                             final_state_particles = ["antimuon", "proton", "pi-"]
                         if random_second_chance < 0.50: #Produces neutron
                             final_state_particles = ["antimuon", "neutron", "pi0"]  
                     if random_chance < 0.50: #Hits neutron
-                        final_state_particles = ["anitmuon", "neutron", "pi-"]
-
-            #Percent of neutrino energy that is distributed to the final state particles on top of their rest mass energy
-            energy_distribution = np.random.uniform(0.25, 0.75)
-            nu_energy_given = energy_distribution/len(final_state_particles) #each particle gets the same energy to simplify the problem
+                        mass_i = 940.6
+                        final_state_particles = ["antimuon", "neutron", "pi-"]
 
             i = 0
             #electron, positron, muon, antimuon, proton, neutron, pi-, pi0, pi+
             while i < len(final_state_particles):
                 if final_state_particles[i] == "electron":
-                    final_particles_mass[i] = 0.511
-                    final_particles_charge[i] = -1
+                    final_particles_mass.append(0.511)
+                    final_particles_charge.append(-1)
 
                 if final_state_particles[i] == "positron":
-                    final_particles_mass[i] = 0.511
-                    final_particles_charge[i] = 1
+                    final_particles_mass.append(0.511)
+                    final_particles_charge.append(1)
 
                 if final_state_particles[i] == "muon":
-                    final_particles_mass[i] = 105.7
-                    final_particles_charge[i] = -1
+                    final_particles_mass.append(105.700)
+                    final_particles_charge.append(-1)
 
                 if final_state_particles[i] == "antimuon":
-                    final_particles_mass[i] = 105.7
-                    final_particles_charge[i] = 1
+                    final_particles_mass.append(105.700)
+                    final_particles_charge.append(1)
             
                 if final_state_particles[i] == "proton":
-                    final_particles_mass[i] = 938.272
-                    final_particles_charge[i] = 1
+                    final_particles_mass.append(938.272)
+                    final_particles_charge.append(1)
 
                 if final_state_particles[i] == "neutron":
-                    final_particles_mass[i] = 938.272
-                    final_particles_charge[i] = 0
+                    final_particles_mass.append(940.600)
+                    final_particles_charge.append(0)
                 
                 if final_state_particles[i] == "pi+":
-                    final_particles_mass[i] = 938.272
-                    final_particles_charge[i] = 1
+                    final_particles_mass.append(139.570)
+                    final_particles_charge.append(1)
 
                 if final_state_particles[i] == "pi-":
-                    final_particles_mass[i] = 938.272
-                    final_particles_charge[i] = -1
+                    final_particles_mass.append(139.570)
+                    final_particles_charge.append(-1)
 
                 if final_state_particles[i] == "pi0":
-                    final_particles_mass[i] = 938.272
-                    final_particles_charge[i] = 0
-
-                #energy distribution
-                final_particles_energy[i] = final_particles_mass[i] + self.e_i*nu_energy_given
+                    final_particles_mass.append(134.977)
+                    final_particles_charge.append(0)
 
                 i+=1
 
-        return final_state_particles, final_particles_mass, final_particles_energy, final_particles_charge, interaction_type
+            #energy distribution
+            if qes_truth or pi_truth:
+                final_mass = sum(final_particles_mass)
+                energy_difference = mass_i + e_nu - final_mass #Energy leftover after the final particles are created
+                distributed = energy_difference/(len(final_state_particles))
+            
+            if dis_truth == True:
+                distributed = e_nu * np.random.uniform(0.25, 0.5)/(len(final_state_particles))
+
+            j = 0
+            while j < len(final_state_particles):
+                final_particles_energy.append(final_particles_mass[j] + distributed)
+
+                j+=1
+
+        return final_state_particles, final_particles_mass, final_particles_energy, final_particles_charge, interaction_type, flavor, e_nu
