@@ -98,7 +98,8 @@ class FinalState():
                 return 0
             else:
                 return 0.25*x*math.e**(-(x-0.75)**2)
-        
+
+        #Rejection sampling to determine which interaction occurs based on the energy of the neutrino
         gev = e_nu/1000 
 
         qes_prob = qes(gev)
