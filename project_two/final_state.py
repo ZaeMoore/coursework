@@ -7,7 +7,7 @@ import numpy as np
 from statistics import NormalDist
 
 class FinalState():
-    def __init__(self, e_i, flavor_i, lepton_number, dist):
+    def __init__(self, beam_energy, flavor_i, lepton_number, dist):
         """Initializing class to determine information about the final state after the collision
         Parameters:
         Initial energy (in MeV)
@@ -15,7 +15,7 @@ class FinalState():
         Distance from starting point to detector
         Lepton number (1 for neutrino, -1 for antineutrino)
         """
-        self.e_i = e_i
+        self.beam_energy = beam_energy
         self.flavor_i = flavor_i
         self.dist = dist
         self.lepton_number = lepton_number
@@ -30,10 +30,9 @@ class FinalState():
         Flavor of neutrino
         """
         delta_m12_sq = 7.53*(10**(-5)) #ev^2
-        prob_of_oscillation = 0.855*(math.sin(delta_m12_sq*self.dist/(4*self.e_i)))
+        prob_of_oscillation = 0.855*(math.sin(delta_m12_sq*self.dist/(4*self.beam_energy)))
 
         random_number = np.random.uniform(0, 1)
-
         did_they_oscillate = random_number <= prob_of_oscillation
 
         if did_they_oscillate == True:
@@ -53,10 +52,9 @@ class FinalState():
         Energy of neutrino
         """
         random_number = np.random.uniform(0, 1)
-        e_nu = NormalDist(mu=self.e_i, sigma=10).inv_cdf(random_number)
+        e_nu = NormalDist(mu=self.beam_energy, sigma=10).inv_cdf(random_number)
         return abs(e_nu)
 
-        
 
     def final_particles(self):
         """Monte Carlo simulation to determine the final state particles of the neutrino Argon collision
@@ -86,7 +84,7 @@ class FinalState():
             """
             if x <= 0.75:
                 return 0
-            else:
+            if x > 0.75:
                 return -math.e**(-x+0.5)+0.8
         
         def pi(x):
@@ -96,10 +94,10 @@ class FinalState():
             """
             if x <= 0.25:
                 return 0
-            else:
+            if x > 0.25:
                 return 0.25*x*math.e**(-(x-0.75)**2)
 
-        #Rejection sampling to determine which interaction occurs based on the energy of the neutrino
+        #Rejection sampling to determine which type of interaction occurs based on the energy of the neutrino
         gev = e_nu/1000 
 
         qes_prob = qes(gev)
@@ -116,10 +114,9 @@ class FinalState():
 
         final_state_particles = [] #Names
         final_particles_energy = [] #MeV
-        final_particles_charge = [] #+1 or -1
+        final_particles_charge = [] #+1, -1, or 0
         final_particles_mass = [] #MeV Natural units babyyyy
 
-        #Comparing these, we can find out what type of interaction it is
         if qes_truth:       
             interaction_type = "QES" #This is a quasi-elastic scattering interaction
             if self.lepton_number == 1: #Neutrino

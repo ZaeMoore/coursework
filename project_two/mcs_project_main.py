@@ -37,8 +37,11 @@ elif flavor != 1 and flavor != 2:
     print("Invalid input, assuming electron neutrinos")
     flavor_i = True
 
-e_initial = int(input("Average energy of neutrino beam (between 10 and 10,000 MeV): "))
-
+beam_energy = int(input("Average energy of neutrino beam (between 10 and 10,000 MeV): "))
+oscillated = 0
+qes_data = 0
+pi_data = 0
+dis_data = 0
 final_particle_names = []
 final_particle_mass = []
 final_particle_energy = []
@@ -48,14 +51,22 @@ data = [["Trial", "Initial Flavor", "Final Flavor", "Type of Interaction", "Fina
 i = 0
 #Each element in these arrays is its own array that represents one event
 while i<number_trials:
-    event = fs.FinalState(e_initial, flavor_i, lepton_number, dist)
+    event = fs.FinalState(beam_energy, flavor_i, lepton_number, dist)
     final = event.final_particles()
     final_particle_names.append(final[0])
     final_particle_mass.append(final[1])
     final_particle_energy.append(final[2])
     final_particle_charge.append(final[3])
     interaction_type.append(final[4])
+    if final[4] == "QES":
+        qes_data += 1
+    if final[4] == "DIS":
+        dis_data += 1
+    if final[4] == "pi":
+        pi_data += 1
     flavor = final[5]
+    if flavor_i != flavor:
+        oscillated += 1
     if flavor == True:
         final_f = "Electron"
     if flavor == False:
@@ -63,11 +74,18 @@ while i<number_trials:
     data.append([i+1, initial_f, final_f, final[4], final[0], final[6]])
     i+=1
 
+percent_oscillated = 100*oscillated/number_trials
+percent_qes = 100*qes_data/number_trials
+percent_pi = 100*pi_data/number_trials
+percent_dis = 100*dis_data/number_trials
+print("Percent of neutrinos that oscillated: ", percent_oscillated)
+print("Percent of interactions that were qes: ", percent_qes)
+print("Percent of interactions that were pi resonance: ", percent_pi)
+print("Percent of interactions that were dis: ", percent_dis)
 
 with open("neutrinodata.csv", 'w', newline='') as file:
     wr = csv.writer(file)
     wr.writerows(data)
 
-#Output a .csv file with info
 #Output a plot with positions of hits
 
