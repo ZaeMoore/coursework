@@ -26,18 +26,36 @@ class FinalHit():
         self.mom = np.sqrt(2*self.mass*self.initialE)
         pass
 
-    def momComponents(self, alpha):
+    def vComponents(self, alpha):
         """
         takes the momentum of the particle and randomly selects two angles
         from some normal distrubition to define direction particle travels
         wrt x axis (path of incoming neutrino)
 
+        assume particles traveling in z direction
+
         parameters:
         Mom: momentums of the particles
         alpha: std in the normal distribution to sample angles from
 
+        returns:
+        xVel: velocity in x direction
+        yVel: velocity in y direction
+        zVel: velocity in z direction
+
        """
 
+        absVelocity = self.mom/self.mass #non relativistic neutrinos :(
+        theta = np.random.normal(loc = 0.0, scale = alpha, size = len(self.mom))
+        phi = np.random.normal(loc = 0.0, scale = alpha, size = len(self.mom))
 
-    
+        xVel = absVelocity*np.sin(theta)*np.cos(phi)
+        yVel = absVelocity*np.sin(theta)*np.sin(phi)
+        zVel = absVelocity*np.cos(theta)
+
+        return xVel, yVel, zVel
+
+    def WhereHit(self, xVel, yVel, zVel, xPos, xNeg):
+        pass
+
     
