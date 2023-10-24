@@ -5,16 +5,22 @@ Authors: Zae Moore, Andrew Dowling
 import math
 import numpy as np
 import matplotlib
+
 matplotlib.use("agg")
 import matplotlib.pyplot as plt
 import final_state as fs
 import csv
 
-print("Welcome to the interactive neutrino experience where we all suffer")
+print(
+    "Welcome to the interactive neutrino simulation experience, where a neutrino's best quality is its wiggles!"
+)
+print(
+    "Here, we will conduct a number of simulations to learn about how neutrinos interact with Argon atoms!"
+)
 
-number_trials = int(input("Number of trials: "))
+number_trials = int(input("Number of trials/runs: "))
 
-dist = int(input("Distance from start to detector (m): "))
+dist = int(input("Distance from the start of the neutrino beam to the detector (m): "))
 lepton_number = int(input("Neutrino (Type 1) or Antineutrino (Type -1)? "))
 if lepton_number == 1:
     print("Neutrino")
@@ -24,7 +30,9 @@ if lepton_number != 1 and lepton_number != -1:
     lepton_number = 1
     print("Invalid input, assuming neutrinos")
 
-flavor = int(input("Initial flavor of Neutrino (Type 1 for electron, Type 2 for muon): "))
+flavor = int(
+    input("Initial flavor of Neutrino (Type 1 for electron, Type 2 for muon): ")
+)
 if flavor == 1:
     print("Electron Neutrino")
     initial_f = "Electron"
@@ -37,7 +45,10 @@ elif flavor != 1 and flavor != 2:
     print("Invalid input, assuming electron neutrinos")
     flavor_i = True
 
-beam_energy = int(input("Average energy of neutrino beam (between 10 and 10,000 MeV): "))
+beam_energy = int(
+    input("Average energy of neutrino beam (between 10 and 10,000 MeV): ")
+)
+
 oscillated = 0
 qes_data = 0
 pi_data = 0
@@ -47,10 +58,19 @@ final_particle_mass = []
 final_particle_energy = []
 final_particle_charge = []
 interaction_type = []
-data = [["Trial", "Initial Flavor", "Final Flavor", "Type of Interaction", "Final State Particles", "Energy of neutrino (MeV)"]]
+data = [
+    [
+        "Trial",
+        "Initial Flavor",
+        "Final Flavor",
+        "Type of Interaction",
+        "Final State Particles",
+        "Energy of neutrino (MeV)",
+    ]
+]
 i = 0
-#Each element in these arrays is its own array that represents one event
-while i<number_trials:
+# Each element in these arrays is its own array that represents one event
+while i < number_trials:
     event = fs.FinalState(beam_energy, flavor_i, lepton_number, dist)
     final = event.final_particles()
     final_particle_names.append(final[0])
@@ -71,21 +91,20 @@ while i<number_trials:
         final_f = "Electron"
     if flavor == False:
         final_f = "Muon"
-    data.append([i+1, initial_f, final_f, final[4], final[0], final[6]])
-    i+=1
+    data.append([i + 1, initial_f, final_f, final[4], final[0], final[6]])
+    i += 1
 
-percent_oscillated = 100*oscillated/number_trials
-percent_qes = 100*qes_data/number_trials
-percent_pi = 100*pi_data/number_trials
-percent_dis = 100*dis_data/number_trials
+percent_oscillated = 100 * oscillated / number_trials
+percent_qes = 100 * qes_data / number_trials
+percent_pi = 100 * pi_data / number_trials
+percent_dis = 100 * dis_data / number_trials
 print("Percent of neutrinos that oscillated: ", percent_oscillated)
 print("Percent of interactions that were qes: ", percent_qes)
 print("Percent of interactions that were pi resonance: ", percent_pi)
 print("Percent of interactions that were dis: ", percent_dis)
 
-with open("neutrinodata.csv", 'w', newline='') as file:
+with open("neutrinodata.csv", "w", newline="") as file:
     wr = csv.writer(file)
     wr.writerows(data)
 
-#Output a plot with positions of hits
-
+# Output a plot with positions of hits
