@@ -1,0 +1,2 @@
+[console_scripts]
+run-nu = neutrino_simulation:mcs_project_main

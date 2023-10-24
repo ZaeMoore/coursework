@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: neutrino-simulation
+Version: 0.0.1
+Summary: A monte carlo simulation package that simulates neutrinos interacting with Argon
+Author-email: Zae Moore <emoore06@syr.edu>, Andrew Dowling <ajdowlin@syr.edu>
+Project-URL: Homepage, https://github.com/ZaeMoore/coursework/tree/master/project_two
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: statistics
+Requires-Dist: matplotlib
+
+Welcome to the interactive neutrino simulation experience!
+~A neutrino's best quality is its wiggles~
+
+Simply download this package and install it to begin!
+
+Typing "run-nu" into the command line will run the main script.
+
+Enter the requested information in the command line! This will be passed to the simulation.
+
+The simulation will output a .csv file with information on the flavor of the neutrino, whether it oscillated,
+the type of interaction that occurred, the final state particles, and the energy of the neutrino.

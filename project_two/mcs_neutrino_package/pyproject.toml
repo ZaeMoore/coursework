@@ -5,13 +5,11 @@ dependencies = [
     "numpy",
     "scipy",
     "statistics",
-    "math",
-    "matplotlib",
-    "csv"
+    "matplotlib"
 ]
 authors = [
-    { name="Zae Moore", email="emoore06@syr.edu"}
-    { name="Andrew Dowling", email="ajdowlin@syr.edu"}
+    { name="Zae Moore", email="emoore06@syr.edu" },
+    { name="Andrew Dowling", email="ajdowlin@syr.edu" }
 ]
 description = "A monte carlo simulation package that simulates neutrinos interacting with Argon"
 readme = "README.md"
