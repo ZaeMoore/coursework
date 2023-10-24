@@ -1,0 +1,1001 @@
+Trial,Initial Flavor,Final Flavor,Type of Interaction,Final State Particles,Energy of neutrino (MeV)
+1,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1003.0617214166342
+2,Electron,Electron,DIS,['electron'],997.1556820817167
+3,Electron,Electron,pi,"['electron', 'proton', 'pi0']",991.2638729885779
+4,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.0605651187835
+5,Electron,Electron,QES,"['electron', 'proton']",991.7057536612382
+6,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",986.6686476110995
+7,Electron,Electron,QES,"['electron', 'proton']",1028.4851449638488
+8,Electron,Electron,QES,"['electron', 'proton']",1001.6835597399951
+9,Electron,Electron,QES,"['electron', 'proton']",978.2539328444848
+10,Electron,Muon,pi,"['muon', 'proton', 'pi+']",1026.4213383807942
+11,Electron,Electron,QES,"['electron', 'proton']",992.9723015186804
+12,Electron,Electron,QES,"['electron', 'proton']",991.6716441857823
+13,Electron,Electron,QES,"['electron', 'proton']",998.4981718343618
+14,Electron,Electron,QES,"['electron', 'proton']",999.5216990369847
+15,Electron,Electron,QES,"['electron', 'proton']",1003.9402768845705
+16,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1007.6816985247523
+17,Electron,Electron,pi,"['electron', 'proton', 'pi0']",999.5299399690776
+18,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.0405294911282
+19,Electron,Electron,QES,"['electron', 'proton']",1019.2048181817476
+20,Electron,Electron,QES,"['electron', 'proton']",992.8264541506987
+21,Electron,Electron,QES,"['electron', 'proton']",989.5462037662193
+22,Electron,Electron,QES,"['electron', 'proton']",996.2609245507664
+23,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1001.4825294181726
+24,Electron,Electron,QES,"['electron', 'proton']",1000.8639327690059
+25,Electron,Electron,DIS,['electron'],1005.804627460847
+26,Electron,Electron,QES,"['electron', 'proton']",1004.3859084954935
+27,Electron,Electron,pi,"['electron', 'proton', 'pi+']",992.2598930605197
+28,Electron,Electron,QES,"['electron', 'proton']",1002.3464745030192
+29,Electron,Electron,QES,"['electron', 'proton']",995.5504166434339
+30,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1004.7036964979687
+31,Electron,Electron,QES,"['electron', 'proton']",961.8503823522947
+32,Electron,Electron,QES,"['electron', 'proton']",1003.2644632881431
+33,Electron,Electron,QES,"['electron', 'proton']",997.8179083734353
+34,Electron,Electron,QES,"['electron', 'proton']",993.7947992702013
+35,Electron,Electron,DIS,['electron'],1002.0520030531935
+36,Electron,Electron,DIS,['electron'],1015.4061281499904
+37,Electron,Electron,DIS,['electron'],987.5432596036529
+38,Electron,Electron,QES,"['electron', 'proton']",1001.3691667568567
+39,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1019.3385179162703
+40,Electron,Electron,pi,"['electron', 'proton', 'pi0']",998.1892270797109
+41,Electron,Electron,QES,"['electron', 'proton']",1001.804191327686
+42,Electron,Electron,QES,"['electron', 'proton']",1009.0316444798768
+43,Electron,Electron,QES,"['electron', 'proton']",1013.9832736783761
+44,Electron,Electron,QES,"['electron', 'proton']",1012.744354978202
+45,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1002.4465097661389
+46,Electron,Electron,QES,"['electron', 'proton']",974.5350266975169
+47,Electron,Electron,QES,"['electron', 'proton']",1009.7645899288976
+48,Electron,Electron,QES,"['electron', 'proton']",988.9268980731705
+49,Electron,Electron,QES,"['electron', 'proton']",980.9801726017976
+50,Electron,Electron,pi,"['electron', 'proton', 'pi+']",995.544257868542
+51,Electron,Electron,DIS,['electron'],1002.1031864117093
+52,Electron,Electron,DIS,['electron'],988.5300195337323
+53,Electron,Electron,QES,"['electron', 'proton']",995.5687552817852
+54,Electron,Electron,DIS,['electron'],993.9787355134439
+55,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.0822236619333
+56,Electron,Electron,DIS,['electron'],1002.2481702954519
+57,Electron,Electron,pi,"['electron', 'proton', 'pi0']",996.7083302944218
+58,Electron,Electron,DIS,['electron'],998.6183182446271
+59,Electron,Electron,QES,"['electron', 'proton']",1007.583837727702
+60,Electron,Electron,QES,"['electron', 'proton']",998.1006463160246
+61,Electron,Electron,DIS,['electron'],993.4938462620512
+62,Electron,Electron,QES,"['electron', 'proton']",999.587606095715
+63,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",991.4941722948367
+64,Electron,Electron,QES,"['electron', 'proton']",1004.2180923652161
+65,Electron,Electron,QES,"['electron', 'proton']",988.1810608253949
+66,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1009.9865915876503
+67,Electron,Electron,QES,"['electron', 'proton']",1018.7872584039952
+68,Electron,Muon,DIS,['muon'],1019.7174269442638
+69,Electron,Muon,QES,"['muon', 'proton']",1008.1339085742268
+70,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1004.15601476454
+71,Electron,Electron,QES,"['electron', 'proton']",978.9331860761697
+72,Electron,Electron,QES,"['electron', 'proton']",1011.4704114305447
+73,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",987.8753175649447
+74,Electron,Electron,DIS,['electron'],996.4244578770337
+75,Electron,Electron,QES,"['electron', 'proton']",988.9025664051994
+76,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1025.6382553565027
+77,Electron,Electron,DIS,['electron'],993.5133146588491
+78,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1001.6623231351629
+79,Electron,Electron,QES,"['electron', 'proton']",993.0860246423324
+80,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1013.8030927330233
+81,Electron,Electron,QES,"['electron', 'proton']",1000.3545850414276
+82,Electron,Electron,DIS,['electron'],995.2641907766236
+83,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1003.8749665395694
+84,Electron,Electron,QES,"['electron', 'proton']",1017.6279042063494
+85,Electron,Electron,QES,"['electron', 'proton']",998.9141448378145
+86,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1002.9098375391935
+87,Electron,Electron,pi,"['electron', 'proton', 'pi+']",993.8259842776431
+88,Electron,Electron,QES,"['electron', 'proton']",992.5602384758733
+89,Electron,Electron,DIS,['electron'],988.3068239527381
+90,Electron,Electron,QES,"['electron', 'proton']",1011.6714906557083
+91,Electron,Electron,QES,"['electron', 'proton']",1020.6818442127309
+92,Electron,Electron,QES,"['electron', 'proton']",1000.4260826232575
+93,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1017.5909774528628
+94,Electron,Electron,DIS,['electron'],1006.7886515063398
+95,Electron,Electron,QES,"['electron', 'proton']",980.181310937213
+96,Electron,Electron,QES,"['electron', 'proton']",992.7433594204009
+97,Electron,Electron,QES,"['electron', 'proton']",1008.8903317603352
+98,Electron,Electron,QES,"['electron', 'proton']",994.7148299924157
+99,Electron,Electron,QES,"['electron', 'proton']",1022.0618806193484
+100,Electron,Electron,QES,"['electron', 'proton']",1016.5510358633427
+101,Electron,Electron,QES,"['electron', 'proton']",996.9558677334948
+102,Electron,Electron,QES,"['electron', 'proton']",993.7685536196063
+103,Electron,Electron,QES,"['electron', 'proton']",992.5619017970818
+104,Electron,Electron,QES,"['electron', 'proton']",1006.9111334344543
+105,Electron,Electron,DIS,['electron'],996.766847780977
+106,Electron,Electron,DIS,['electron'],988.0214287037796
+107,Electron,Electron,QES,"['electron', 'proton']",993.1406615182548
+108,Electron,Electron,QES,"['electron', 'proton']",996.6779629819209
+109,Electron,Electron,DIS,['electron'],1013.3512726401784
+110,Electron,Electron,DIS,['electron'],1003.9294387463475
+111,Electron,Electron,QES,"['electron', 'proton']",978.591678947778
+112,Electron,Electron,QES,"['electron', 'proton']",991.9748953513787
+113,Electron,Electron,pi,"['electron', 'proton', 'pi+']",996.8210292183893
+114,Electron,Electron,QES,"['electron', 'proton']",1007.9016114240342
+115,Electron,Electron,DIS,['electron'],1015.7454955006226
+116,Electron,Electron,pi,"['electron', 'proton', 'pi+']",990.5005114090067
+117,Electron,Electron,QES,"['electron', 'proton']",994.1495687481928
+118,Electron,Muon,QES,"['muon', 'proton']",1005.5726540970898
+119,Electron,Electron,QES,"['electron', 'proton']",1009.8676498753488
+120,Electron,Electron,QES,"['electron', 'proton']",1001.154840063996
+121,Electron,Electron,QES,"['electron', 'proton']",1006.679677232552
+122,Electron,Electron,DIS,['electron'],1012.061725456445
+123,Electron,Electron,QES,"['electron', 'proton']",1012.5961797400554
+124,Electron,Electron,DIS,['electron'],1003.0003605223195
+125,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1012.2672414032515
+126,Electron,Electron,DIS,['electron'],1005.1676250721224
+127,Electron,Electron,QES,"['electron', 'proton']",992.6890851497869
+128,Electron,Electron,QES,"['electron', 'proton']",994.7913613193375
+129,Electron,Electron,QES,"['electron', 'proton']",1014.5351237763734
+130,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1018.6587719554327
+131,Electron,Electron,QES,"['electron', 'proton']",994.7387153338216
+132,Electron,Electron,DIS,['electron'],986.8981670853182
+133,Electron,Electron,QES,"['electron', 'proton']",1011.4829401071064
+134,Electron,Electron,QES,"['electron', 'proton']",1000.4889754740339
+135,Electron,Electron,QES,"['electron', 'proton']",1006.2263441126789
+136,Electron,Electron,pi,"['electron', 'proton', 'pi0']",999.6077412090058
+137,Electron,Electron,QES,"['electron', 'proton']",1019.84296987819
+138,Electron,Electron,QES,"['electron', 'proton']",1005.930045060304
+139,Electron,Electron,pi,"['electron', 'proton', 'pi+']",996.5826411014936
+140,Electron,Electron,QES,"['electron', 'proton']",997.7052011777706
+141,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1002.8039428348314
+142,Electron,Electron,QES,"['electron', 'proton']",1004.4913418451644
+143,Electron,Electron,QES,"['electron', 'proton']",1010.8959221480227
+144,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",982.4669817926705
+145,Electron,Electron,DIS,['electron'],1008.8917556567878
+146,Electron,Electron,QES,"['electron', 'proton']",1012.2979289097651
+147,Electron,Electron,QES,"['electron', 'proton']",997.4478238610853
+148,Electron,Electron,QES,"['electron', 'proton']",1017.0952488006493
+149,Electron,Electron,QES,"['electron', 'proton']",995.3719376590714
+150,Electron,Electron,QES,"['electron', 'proton']",996.2471941444608
+151,Electron,Electron,DIS,['electron'],1008.2281903731772
+152,Electron,Electron,QES,"['electron', 'proton']",997.0285088978206
+153,Electron,Electron,QES,"['electron', 'proton']",1007.881940957803
+154,Electron,Electron,QES,"['electron', 'proton']",995.7582647587371
+155,Electron,Electron,QES,"['electron', 'proton']",990.099760018474
+156,Electron,Electron,QES,"['electron', 'proton']",1009.2081521880112
+157,Electron,Electron,QES,"['electron', 'proton']",991.2449703032747
+158,Electron,Electron,pi,"['electron', 'proton', 'pi+']",992.9055882368544
+159,Electron,Electron,QES,"['electron', 'proton']",1011.1265519816224
+160,Electron,Electron,QES,"['electron', 'proton']",1010.8349134704075
+161,Electron,Electron,QES,"['electron', 'proton']",1002.6429201305776
+162,Electron,Electron,QES,"['electron', 'proton']",1007.6043543293757
+163,Electron,Electron,QES,"['electron', 'proton']",999.5654517649191
+164,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1017.9861720543495
+165,Electron,Electron,QES,"['electron', 'proton']",992.7729990326419
+166,Electron,Electron,QES,"['electron', 'proton']",986.9354884329272
+167,Electron,Electron,QES,"['electron', 'proton']",998.6830111161531
+168,Electron,Electron,pi,"['electron', 'proton', 'pi+']",990.1328252416787
+169,Electron,Electron,QES,"['electron', 'proton']",998.278468050744
+170,Electron,Electron,DIS,['electron'],997.4909419446719
+171,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.0806695722721
+172,Electron,Electron,QES,"['electron', 'proton']",994.2569382636517
+173,Electron,Electron,QES,"['electron', 'proton']",986.4598390094789
+174,Electron,Electron,DIS,['electron'],998.1194440256126
+175,Electron,Electron,QES,"['electron', 'proton']",992.4778796900767
+176,Electron,Electron,QES,"['electron', 'proton']",1013.3388276999958
+177,Electron,Electron,QES,"['electron', 'proton']",999.1995997910371
+178,Electron,Electron,DIS,['electron'],1005.5452550351442
+179,Electron,Electron,QES,"['electron', 'proton']",996.1264499799829
+180,Electron,Electron,QES,"['electron', 'proton']",998.7944998480374
+181,Electron,Electron,QES,"['electron', 'proton']",995.8367680618188
+182,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1009.5722886430686
+183,Electron,Electron,DIS,['electron'],989.0399470026714
+184,Electron,Electron,DIS,['electron'],991.9813471370517
+185,Electron,Electron,QES,"['electron', 'proton']",999.6887221655693
+186,Electron,Electron,pi,"['electron', 'proton', 'pi+']",992.1637855605808
+187,Electron,Electron,QES,"['electron', 'proton']",1004.3689672754141
+188,Electron,Electron,QES,"['electron', 'proton']",999.04921579567
+189,Electron,Electron,QES,"['electron', 'proton']",1001.2319505662036
+190,Electron,Electron,QES,"['electron', 'proton']",1004.6862727949562
+191,Electron,Electron,QES,"['electron', 'proton']",988.8908060291172
+192,Electron,Electron,QES,"['electron', 'proton']",1005.7713306490625
+193,Electron,Electron,QES,"['electron', 'proton']",1005.811791393863
+194,Electron,Electron,QES,"['electron', 'proton']",986.7621146537524
+195,Electron,Electron,QES,"['electron', 'proton']",994.5798741579155
+196,Electron,Electron,QES,"['electron', 'proton']",998.8611143626314
+197,Electron,Electron,QES,"['electron', 'proton']",996.1193440159421
+198,Electron,Electron,QES,"['electron', 'proton']",993.6896072957862
+199,Electron,Electron,DIS,['electron'],993.5452397314924
+200,Electron,Electron,QES,"['electron', 'proton']",1013.3273543617424
+201,Electron,Electron,DIS,['electron'],996.5689911063403
+202,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.675510960494
+203,Electron,Electron,QES,"['electron', 'proton']",991.0889291398169
+204,Electron,Electron,QES,"['electron', 'proton']",1000.2540883734814
+205,Electron,Electron,QES,"['electron', 'proton']",1008.4833264058275
+206,Electron,Electron,QES,"['electron', 'proton']",973.3835387073409
+207,Electron,Electron,QES,"['electron', 'proton']",995.649756755883
+208,Electron,Electron,QES,"['electron', 'proton']",1018.2647800113928
+209,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1009.4293425711041
+210,Electron,Electron,DIS,['electron'],995.9583060088618
+211,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1001.6709997801754
+212,Electron,Electron,QES,"['electron', 'proton']",989.5570969956336
+213,Electron,Electron,DIS,['electron'],1000.6195127225079
+214,Electron,Electron,QES,"['electron', 'proton']",1009.7592987072994
+215,Electron,Electron,DIS,['electron'],982.6886687998941
+216,Electron,Electron,QES,"['electron', 'proton']",988.8107052130629
+217,Electron,Electron,QES,"['electron', 'proton']",1000.251039579013
+218,Electron,Electron,QES,"['electron', 'proton']",1016.3323120551069
+219,Electron,Electron,QES,"['electron', 'proton']",990.6605160030675
+220,Electron,Electron,QES,"['electron', 'proton']",1000.1181699067224
+221,Electron,Muon,pi,"['muon', 'proton', 'pi0']",1014.397972329507
+222,Electron,Electron,DIS,['electron'],1009.9688013024842
+223,Electron,Electron,QES,"['electron', 'proton']",1014.5048759435261
+224,Electron,Electron,QES,"['electron', 'proton']",999.8967362455196
+225,Electron,Electron,QES,"['electron', 'proton']",1021.69207428995
+226,Electron,Electron,QES,"['electron', 'proton']",1000.7200525917526
+227,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.2516934445589
+228,Electron,Electron,QES,"['electron', 'proton']",1009.4290524649178
+229,Electron,Electron,QES,"['electron', 'proton']",1006.8308332512506
+230,Electron,Electron,DIS,['electron'],1015.1138872727364
+231,Electron,Electron,QES,"['electron', 'proton']",1003.9160682611504
+232,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1007.2759698736623
+233,Electron,Electron,QES,"['electron', 'proton']",997.4733657404641
+234,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1000.5103523780868
+235,Electron,Electron,QES,"['electron', 'proton']",994.042440358561
+236,Electron,Electron,QES,"['electron', 'proton']",1005.4103294975181
+237,Electron,Electron,QES,"['electron', 'proton']",1001.1033063438595
+238,Electron,Electron,pi,"['electron', 'proton', 'pi0']",980.6957400173886
+239,Electron,Electron,QES,"['electron', 'proton']",991.479477338161
+240,Electron,Electron,QES,"['electron', 'proton']",979.8417100174396
+241,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1005.9401487545706
+242,Electron,Electron,QES,"['electron', 'proton']",1005.9804471923577
+243,Electron,Electron,DIS,['electron'],1006.355121687402
+244,Electron,Electron,QES,"['electron', 'proton']",1007.7326546285491
+245,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1017.069729539381
+246,Electron,Electron,QES,"['electron', 'proton']",1007.8358403471881
+247,Electron,Electron,QES,"['electron', 'proton']",995.2976625223585
+248,Electron,Electron,QES,"['electron', 'proton']",1007.7841373353131
+249,Electron,Electron,QES,"['electron', 'proton']",1018.9569648065865
+250,Electron,Electron,DIS,['electron'],1015.944006886617
+251,Electron,Electron,QES,"['electron', 'proton']",984.6180635184505
+252,Electron,Electron,DIS,['electron'],1007.1858371394821
+253,Electron,Electron,QES,"['electron', 'proton']",999.5941080440758
+254,Electron,Electron,QES,"['electron', 'proton']",1001.0726561279943
+255,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1002.6718991875593
+256,Electron,Electron,QES,"['electron', 'proton']",1021.6411968173736
+257,Electron,Electron,QES,"['electron', 'proton']",1007.1480458436886
+258,Electron,Electron,QES,"['electron', 'proton']",987.0600650704719
+259,Electron,Electron,QES,"['electron', 'proton']",992.111386264546
+260,Electron,Electron,QES,"['electron', 'proton']",1000.5838531675267
+261,Electron,Electron,pi,"['electron', 'proton', 'pi0']",997.4536921171485
+262,Electron,Electron,QES,"['electron', 'proton']",1003.4168003287522
+263,Electron,Electron,QES,"['electron', 'proton']",1006.5491592168402
+264,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1011.207502390364
+265,Electron,Electron,QES,"['electron', 'proton']",1006.3118676262541
+266,Electron,Electron,DIS,['electron'],999.9416349864024
+267,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1001.2028945466981
+268,Electron,Electron,QES,"['electron', 'proton']",979.8171644239361
+269,Electron,Electron,DIS,['electron'],975.2256377456023
+270,Electron,Electron,DIS,['electron'],999.7936901991812
+271,Electron,Electron,QES,"['electron', 'proton']",998.494175602264
+272,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",982.7002908943639
+273,Electron,Electron,QES,"['electron', 'proton']",1028.9857473128675
+274,Electron,Electron,QES,"['electron', 'proton']",1000.3646216374017
+275,Electron,Electron,QES,"['electron', 'proton']",1002.6713622984205
+276,Electron,Electron,pi,"['electron', 'proton', 'pi0']",980.9105963531409
+277,Electron,Electron,QES,"['electron', 'proton']",989.6580390800285
+278,Electron,Muon,pi,"['muon', 'proton', 'pi+']",998.9215636210886
+279,Electron,Electron,QES,"['electron', 'proton']",1003.5849915452466
+280,Electron,Electron,QES,"['electron', 'proton']",986.0129345100077
+281,Electron,Electron,QES,"['electron', 'proton']",991.1938319272107
+282,Electron,Electron,QES,"['electron', 'proton']",1006.7244888025045
+283,Electron,Electron,QES,"['electron', 'proton']",1003.6436057887565
+284,Electron,Electron,QES,"['electron', 'proton']",1002.2062989272381
+285,Electron,Electron,DIS,['electron'],1005.927536196213
+286,Electron,Electron,QES,"['electron', 'proton']",997.1324625951512
+287,Electron,Electron,QES,"['electron', 'proton']",999.085442982644
+288,Electron,Electron,QES,"['electron', 'proton']",992.2068119708197
+289,Electron,Electron,DIS,['electron'],1002.8055940713642
+290,Electron,Electron,QES,"['electron', 'proton']",1012.9982395356687
+291,Electron,Electron,QES,"['electron', 'proton']",1002.623469453259
+292,Electron,Electron,DIS,['electron'],1005.8218351757669
+293,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1010.73900243779
+294,Electron,Electron,DIS,['electron'],1009.0965552320014
+295,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1005.1544401733634
+296,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.3794979707761
+297,Electron,Electron,DIS,['electron'],1006.241903073313
+298,Electron,Electron,DIS,['electron'],1007.1388038655705
+299,Electron,Electron,QES,"['electron', 'proton']",1006.3358857416629
+300,Electron,Electron,pi,"['electron', 'proton', 'pi0']",995.2022782842068
+301,Electron,Electron,pi,"['electron', 'proton', 'pi0']",991.0975939895271
+302,Electron,Electron,QES,"['electron', 'proton']",995.9595992803022
+303,Electron,Electron,QES,"['electron', 'proton']",1000.4718055667046
+304,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1005.5153275958476
+305,Electron,Electron,QES,"['electron', 'proton']",1004.1962310819717
+306,Electron,Electron,QES,"['electron', 'proton']",1000.2118121416083
+307,Electron,Electron,QES,"['electron', 'proton']",999.8862225874269
+308,Electron,Electron,QES,"['electron', 'proton']",1003.7912185450688
+309,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1001.6540832078446
+310,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1000.9781038841643
+311,Electron,Electron,QES,"['electron', 'proton']",997.8224875101399
+312,Electron,Electron,QES,"['electron', 'proton']",1016.3950553943921
+313,Electron,Electron,QES,"['electron', 'proton']",990.8645529287754
+314,Electron,Electron,QES,"['electron', 'proton']",996.7331105616041
+315,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",999.4396450096974
+316,Electron,Electron,QES,"['electron', 'proton']",995.9360305350899
+317,Electron,Electron,QES,"['electron', 'proton']",1005.195337692215
+318,Electron,Electron,QES,"['electron', 'proton']",988.0709416928908
+319,Electron,Electron,QES,"['electron', 'proton']",985.6635820227884
+320,Electron,Electron,QES,"['electron', 'proton']",1012.3096623104545
+321,Electron,Electron,QES,"['electron', 'proton']",1001.4488172124139
+322,Electron,Electron,QES,"['electron', 'proton']",1007.1573618781346
+323,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1019.6562234055124
+324,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1000.3060686406099
+325,Electron,Electron,DIS,['electron'],981.0346912990466
+326,Electron,Electron,DIS,['electron'],993.6356408689775
+327,Electron,Electron,QES,"['electron', 'proton']",1024.6377761013123
+328,Electron,Electron,DIS,['electron'],984.6657250287567
+329,Electron,Electron,QES,"['electron', 'proton']",990.5958414273068
+330,Electron,Electron,QES,"['electron', 'proton']",995.0543079568745
+331,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.8820374985635
+332,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.9123998710521
+333,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1004.0142637266335
+334,Electron,Electron,QES,"['electron', 'proton']",991.7028419263034
+335,Electron,Electron,QES,"['electron', 'proton']",1009.5930333096438
+336,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",989.8005410970153
+337,Electron,Electron,QES,"['electron', 'proton']",991.7160385710586
+338,Electron,Electron,QES,"['electron', 'proton']",995.0822839944001
+339,Electron,Electron,QES,"['electron', 'proton']",1005.4434302793106
+340,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1024.0669373798125
+341,Electron,Electron,QES,"['electron', 'proton']",979.5551218012382
+342,Electron,Electron,pi,"['electron', 'proton', 'pi0']",999.3964387733015
+343,Electron,Electron,QES,"['electron', 'proton']",1005.9390562595847
+344,Electron,Electron,QES,"['electron', 'proton']",994.4363201573125
+345,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.3621583889518
+346,Electron,Electron,pi,"['electron', 'proton', 'pi+']",990.4312528492201
+347,Electron,Electron,DIS,['electron'],1010.3774310499967
+348,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1002.1009337877133
+349,Electron,Electron,pi,"['electron', 'proton', 'pi0']",992.4970327797344
+350,Electron,Electron,DIS,['electron'],986.2187186301668
+351,Electron,Electron,DIS,['electron'],987.3110912455504
+352,Electron,Electron,DIS,['electron'],992.0823793860042
+353,Electron,Electron,QES,"['electron', 'proton']",991.9788483938544
+354,Electron,Electron,QES,"['electron', 'proton']",994.9128623734878
+355,Electron,Electron,QES,"['electron', 'proton']",993.2483189751669
+356,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.2892098675042
+357,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1010.4893405804492
+358,Electron,Electron,pi,"['electron', 'proton', 'pi+']",998.295078038469
+359,Electron,Electron,QES,"['electron', 'proton']",1008.5642530845216
+360,Electron,Electron,QES,"['electron', 'proton']",989.0838887081477
+361,Electron,Electron,DIS,['electron'],1005.9942818744906
+362,Electron,Electron,QES,"['electron', 'proton']",998.0872776927705
+363,Electron,Electron,DIS,['electron'],1005.1582919065528
+364,Electron,Electron,QES,"['electron', 'proton']",1000.0082544879145
+365,Electron,Electron,pi,"['electron', 'proton', 'pi+']",991.9033860684682
+366,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",990.7941614363127
+367,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.860597849548
+368,Electron,Electron,QES,"['electron', 'proton']",1002.9796556761083
+369,Electron,Electron,QES,"['electron', 'proton']",986.3639941561943
+370,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1014.5522865800351
+371,Electron,Electron,QES,"['electron', 'proton']",1008.7408055639314
+372,Electron,Electron,DIS,['electron'],1013.2129849425886
+373,Electron,Electron,QES,"['electron', 'proton']",1007.9789003200706
+374,Electron,Electron,DIS,['electron'],982.2146414845731
+375,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.2274889532142
+376,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1004.5570220311027
+377,Electron,Electron,QES,"['electron', 'proton']",991.4081609903456
+378,Electron,Electron,DIS,['electron'],1012.3998027362836
+379,Electron,Electron,QES,"['electron', 'proton']",991.7626413881683
+380,Electron,Electron,QES,"['electron', 'proton']",1003.2302781684695
+381,Electron,Electron,QES,"['electron', 'proton']",1009.839029898778
+382,Electron,Electron,QES,"['electron', 'proton']",995.2343177890008
+383,Electron,Electron,QES,"['electron', 'proton']",1002.1561911560731
+384,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1000.4496264076419
+385,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1012.6956257527178
+386,Electron,Electron,DIS,['electron'],994.5078035901114
+387,Electron,Electron,QES,"['electron', 'proton']",998.0463758821338
+388,Electron,Electron,QES,"['electron', 'proton']",995.2672514769406
+389,Electron,Electron,DIS,['electron'],994.2445374137882
+390,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",995.4220287695285
+391,Electron,Electron,QES,"['electron', 'proton']",985.8532028796551
+392,Electron,Electron,QES,"['electron', 'proton']",1003.7922063686646
+393,Electron,Electron,pi,"['electron', 'proton', 'pi+']",991.6790537614191
+394,Electron,Electron,DIS,['electron'],994.8797332900482
+395,Electron,Electron,DIS,['electron'],1000.0164033662048
+396,Electron,Electron,QES,"['electron', 'proton']",995.9883423389053
+397,Electron,Electron,DIS,['electron'],993.6946346918133
+398,Electron,Electron,QES,"['electron', 'proton']",1007.2780763782387
+399,Electron,Electron,QES,"['electron', 'proton']",991.9548469690232
+400,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.2771635136194
+401,Electron,Electron,QES,"['electron', 'proton']",992.3345667637643
+402,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1017.8651360022583
+403,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.2438663718231
+404,Electron,Electron,QES,"['electron', 'proton']",1018.2913003241017
+405,Electron,Electron,QES,"['electron', 'proton']",971.8135539909301
+406,Electron,Electron,QES,"['electron', 'proton']",998.5469976876408
+407,Electron,Electron,QES,"['electron', 'proton']",1012.3088561870335
+408,Electron,Muon,QES,"['muon', 'proton']",990.4999664552562
+409,Electron,Electron,QES,"['electron', 'proton']",1011.5870435784414
+410,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1004.1411893971419
+411,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1006.6913754051034
+412,Electron,Electron,DIS,['electron'],991.1714604185847
+413,Electron,Electron,QES,"['electron', 'proton']",1003.7387175139032
+414,Electron,Electron,QES,"['electron', 'proton']",993.248785063909
+415,Electron,Electron,DIS,['electron'],998.1013580125824
+416,Electron,Electron,QES,"['electron', 'proton']",1010.1902302756323
+417,Electron,Electron,QES,"['electron', 'proton']",1004.0221737672549
+418,Electron,Electron,DIS,['electron'],994.4252930302662
+419,Electron,Electron,QES,"['electron', 'proton']",1012.3181679228156
+420,Electron,Electron,DIS,['electron'],991.7025308770775
+421,Electron,Electron,QES,"['electron', 'proton']",988.4390133990271
+422,Electron,Electron,DIS,['electron'],1009.3697620750565
+423,Electron,Electron,QES,"['electron', 'proton']",995.4397043994755
+424,Electron,Electron,QES,"['electron', 'proton']",987.4436306197438
+425,Electron,Electron,QES,"['electron', 'proton']",1028.2757137014096
+426,Electron,Electron,QES,"['electron', 'proton']",1013.3399605005563
+427,Electron,Electron,QES,"['electron', 'proton']",1006.059888631393
+428,Electron,Electron,QES,"['electron', 'proton']",1000.7429801472146
+429,Electron,Electron,QES,"['electron', 'proton']",997.4682594776714
+430,Electron,Electron,QES,"['electron', 'proton']",1005.6203635365551
+431,Electron,Electron,QES,"['electron', 'proton']",1007.8935673154684
+432,Electron,Electron,QES,"['electron', 'proton']",1000.2222592879368
+433,Electron,Electron,QES,"['electron', 'proton']",996.0354381754897
+434,Electron,Electron,QES,"['electron', 'proton']",1003.6803538460442
+435,Electron,Electron,DIS,['electron'],1020.6365825222632
+436,Electron,Electron,QES,"['electron', 'proton']",994.6804343610506
+437,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",994.9749374157612
+438,Electron,Electron,QES,"['electron', 'proton']",1003.9983106130759
+439,Electron,Electron,QES,"['electron', 'proton']",988.2492275033945
+440,Electron,Muon,QES,"['muon', 'proton']",1016.4915198589777
+441,Electron,Electron,QES,"['electron', 'proton']",994.7499128916659
+442,Electron,Electron,DIS,['electron'],988.8162914967617
+443,Electron,Electron,DIS,['electron'],997.760962165955
+444,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.0300259686247
+445,Electron,Electron,QES,"['electron', 'proton']",990.647924944006
+446,Electron,Electron,QES,"['electron', 'proton']",990.6265494072741
+447,Electron,Electron,QES,"['electron', 'proton']",1001.1395652315
+448,Electron,Electron,QES,"['electron', 'proton']",1002.2131346655704
+449,Electron,Electron,QES,"['electron', 'proton']",991.2017524594069
+450,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.5708200650097
+451,Electron,Electron,QES,"['electron', 'proton']",995.9902174170506
+452,Electron,Electron,DIS,['electron'],996.2842360586616
+453,Electron,Electron,DIS,['electron'],993.6223032907376
+454,Electron,Electron,pi,"['electron', 'proton', 'pi0']",992.9104909311092
+455,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.2411977267852
+456,Electron,Electron,pi,"['electron', 'proton', 'pi+']",979.1090670805086
+457,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.1911820511142
+458,Electron,Electron,QES,"['electron', 'proton']",1007.7228896439757
+459,Electron,Electron,QES,"['electron', 'proton']",998.5150572736031
+460,Electron,Electron,QES,"['electron', 'proton']",1018.4864653889385
+461,Electron,Electron,QES,"['electron', 'proton']",1019.1320501023157
+462,Electron,Electron,QES,"['electron', 'proton']",988.0242797239096
+463,Electron,Electron,QES,"['electron', 'proton']",997.9938923100635
+464,Electron,Electron,DIS,['electron'],1004.3583707789261
+465,Electron,Electron,QES,"['electron', 'proton']",997.7703906189356
+466,Electron,Electron,DIS,['electron'],989.3849615337443
+467,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.0136230785316
+468,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",996.2214962605166
+469,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1007.2426999610624
+470,Electron,Electron,QES,"['electron', 'proton']",985.0793360425704
+471,Electron,Electron,QES,"['electron', 'proton']",1007.231533477699
+472,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1005.7132784784964
+473,Electron,Electron,QES,"['electron', 'proton']",986.2624739862463
+474,Electron,Electron,DIS,['electron'],1003.07951850229
+475,Electron,Electron,QES,"['electron', 'proton']",994.2590586073059
+476,Electron,Electron,QES,"['electron', 'proton']",995.0280879907967
+477,Electron,Electron,QES,"['electron', 'proton']",999.6548146455509
+478,Electron,Electron,DIS,['electron'],1003.4935950025939
+479,Electron,Electron,QES,"['electron', 'proton']",1022.317724240456
+480,Electron,Electron,DIS,['electron'],1003.5111462732777
+481,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",993.2161946245595
+482,Electron,Electron,QES,"['electron', 'proton']",992.0826890756658
+483,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1015.6984465889769
+484,Electron,Electron,DIS,['electron'],977.2533112312865
+485,Electron,Electron,QES,"['electron', 'proton']",983.1230271795774
+486,Electron,Electron,QES,"['electron', 'proton']",999.5260407647688
+487,Electron,Electron,QES,"['electron', 'proton']",999.1535674482565
+488,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1014.3885387118364
+489,Electron,Electron,QES,"['electron', 'proton']",991.7019218529263
+490,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1001.7476530308476
+491,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",969.4812799719463
+492,Electron,Electron,DIS,['electron'],1018.4436643709416
+493,Electron,Electron,QES,"['electron', 'proton']",1001.0096130907301
+494,Electron,Electron,QES,"['electron', 'proton']",993.6033081722488
+495,Electron,Electron,QES,"['electron', 'proton']",1006.287774427183
+496,Electron,Electron,QES,"['electron', 'proton']",1001.7849780403826
+497,Electron,Electron,pi,"['electron', 'proton', 'pi+']",985.0318063927095
+498,Electron,Electron,DIS,['electron'],994.3515471864786
+499,Electron,Electron,QES,"['electron', 'proton']",1009.36452805665
+500,Electron,Electron,pi,"['electron', 'proton', 'pi0']",987.3898911240702
+501,Electron,Electron,DIS,['electron'],1012.9745542399686
+502,Electron,Electron,pi,"['electron', 'proton', 'pi0']",992.7863263744218
+503,Electron,Electron,QES,"['electron', 'proton']",1004.5511409717285
+504,Electron,Electron,QES,"['electron', 'proton']",995.9134513362682
+505,Electron,Electron,DIS,['electron'],982.9756314215276
+506,Electron,Electron,pi,"['electron', 'proton', 'pi+']",998.9377108035927
+507,Electron,Electron,DIS,['electron'],1002.6244353981888
+508,Electron,Electron,DIS,['electron'],988.435838580575
+509,Electron,Electron,QES,"['electron', 'proton']",993.8436356185838
+510,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1019.2011264152655
+511,Electron,Electron,QES,"['electron', 'proton']",995.9492231154538
+512,Electron,Electron,pi,"['electron', 'proton', 'pi0']",993.9627229900251
+513,Electron,Electron,DIS,['electron'],1003.187485082396
+514,Electron,Electron,QES,"['electron', 'proton']",992.7447657115773
+515,Electron,Electron,DIS,['electron'],999.8939427387248
+516,Electron,Electron,pi,"['electron', 'proton', 'pi0']",993.8712034051692
+517,Electron,Electron,QES,"['electron', 'proton']",1010.4552456183535
+518,Electron,Muon,QES,"['muon', 'proton']",1007.0944525455852
+519,Electron,Electron,DIS,['electron'],983.5659642713018
+520,Electron,Electron,QES,"['electron', 'proton']",1005.5905055627356
+521,Electron,Electron,DIS,['electron'],997.6830278571529
+522,Electron,Electron,QES,"['electron', 'proton']",1000.7683068328729
+523,Electron,Electron,QES,"['electron', 'proton']",991.9608564810757
+524,Electron,Electron,QES,"['electron', 'proton']",1020.8610221570688
+525,Electron,Electron,QES,"['electron', 'proton']",1004.8775423978088
+526,Electron,Electron,QES,"['electron', 'proton']",999.850756273656
+527,Electron,Electron,QES,"['electron', 'proton']",990.9068328485348
+528,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",993.5242966762505
+529,Electron,Electron,QES,"['electron', 'proton']",995.3965675902871
+530,Electron,Electron,DIS,['electron'],980.5545329717261
+531,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1006.0573523243179
+532,Electron,Electron,QES,"['electron', 'proton']",993.7948050423812
+533,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1010.150425084528
+534,Electron,Electron,pi,"['electron', 'proton', 'pi+']",995.1732964440379
+535,Electron,Electron,QES,"['electron', 'proton']",990.520291402498
+536,Electron,Electron,QES,"['electron', 'proton']",994.2138847547628
+537,Electron,Electron,QES,"['electron', 'proton']",1003.8659496644326
+538,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1008.1590559257393
+539,Electron,Electron,QES,"['electron', 'proton']",990.4654268043686
+540,Electron,Electron,QES,"['electron', 'proton']",998.7645635827055
+541,Electron,Electron,QES,"['electron', 'proton']",1010.0639901366918
+542,Electron,Electron,QES,"['electron', 'proton']",989.0382752850923
+543,Electron,Electron,QES,"['electron', 'proton']",1000.6250384700187
+544,Electron,Electron,QES,"['electron', 'proton']",999.3595500878697
+545,Electron,Electron,QES,"['electron', 'proton']",1005.521344401358
+546,Electron,Electron,QES,"['electron', 'proton']",996.7339244972605
+547,Electron,Electron,QES,"['electron', 'proton']",1016.474767069169
+548,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1026.6222558677557
+549,Electron,Electron,DIS,['electron'],990.4265395785727
+550,Electron,Electron,QES,"['electron', 'proton']",995.4887369258167
+551,Electron,Electron,DIS,['electron'],1004.419623575125
+552,Electron,Electron,QES,"['electron', 'proton']",1002.5282116214421
+553,Electron,Electron,QES,"['electron', 'proton']",1000.1275588797258
+554,Electron,Electron,QES,"['electron', 'proton']",986.9161596844516
+555,Electron,Electron,DIS,['electron'],996.2495772169526
+556,Electron,Electron,QES,"['electron', 'proton']",1008.8906618208412
+557,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1001.8014391908278
+558,Electron,Electron,QES,"['electron', 'proton']",1007.6380454436594
+559,Electron,Electron,QES,"['electron', 'proton']",995.1996283930838
+560,Electron,Electron,DIS,['electron'],986.5017379715475
+561,Electron,Electron,QES,"['electron', 'proton']",998.8532556196893
+562,Electron,Electron,DIS,['electron'],975.9004444922427
+563,Electron,Electron,DIS,['electron'],997.3616468841848
+564,Electron,Electron,DIS,['electron'],992.3267857105456
+565,Electron,Electron,QES,"['electron', 'proton']",992.8129128390277
+566,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1012.1632043004673
+567,Electron,Electron,DIS,['electron'],1008.259321009429
+568,Electron,Electron,QES,"['electron', 'proton']",989.5149615579223
+569,Electron,Electron,QES,"['electron', 'proton']",1005.2985658948119
+570,Electron,Electron,QES,"['electron', 'proton']",998.7863750319013
+571,Electron,Electron,QES,"['electron', 'proton']",978.0364993793419
+572,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1006.9775835052355
+573,Electron,Electron,QES,"['electron', 'proton']",994.3084725299537
+574,Electron,Electron,QES,"['electron', 'proton']",997.0903775472971
+575,Electron,Electron,QES,"['electron', 'proton']",998.1912304044198
+576,Electron,Electron,pi,"['electron', 'proton', 'pi+']",995.4678069513714
+577,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1000.0094508141777
+578,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1004.2183528791912
+579,Electron,Electron,QES,"['electron', 'proton']",992.7567747506673
+580,Electron,Electron,QES,"['electron', 'proton']",984.2535695626666
+581,Electron,Electron,QES,"['electron', 'proton']",1012.7676802812291
+582,Electron,Electron,QES,"['electron', 'proton']",990.9164147813555
+583,Electron,Electron,QES,"['electron', 'proton']",988.6703741762367
+584,Electron,Electron,pi,"['electron', 'proton', 'pi+']",980.7592191505282
+585,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1009.6692755126545
+586,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",992.3547745703237
+587,Electron,Electron,DIS,['electron'],1007.2770420122253
+588,Electron,Electron,QES,"['electron', 'proton']",1014.9520595059215
+589,Electron,Electron,QES,"['electron', 'proton']",996.4680119034083
+590,Electron,Electron,QES,"['electron', 'proton']",1003.3397519201708
+591,Electron,Electron,QES,"['electron', 'proton']",1014.4860106768548
+592,Electron,Electron,DIS,['electron'],989.6736091375287
+593,Electron,Electron,QES,"['electron', 'proton']",1011.8158242048272
+594,Electron,Electron,QES,"['electron', 'proton']",1006.2429347414679
+595,Electron,Electron,QES,"['electron', 'proton']",992.5430761705577
+596,Electron,Electron,QES,"['electron', 'proton']",1014.2092549872239
+597,Electron,Electron,DIS,['electron'],1006.0375780574517
+598,Electron,Electron,DIS,['electron'],1004.1443324641853
+599,Electron,Electron,pi,"['electron', 'proton', 'pi+']",993.1941281706071
+600,Electron,Electron,pi,"['electron', 'proton', 'pi0']",987.764851044581
+601,Electron,Electron,QES,"['electron', 'proton']",999.1725055490446
+602,Electron,Electron,QES,"['electron', 'proton']",998.4750142867442
+603,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1002.2308261157559
+604,Electron,Electron,QES,"['electron', 'proton']",975.3587897743721
+605,Electron,Electron,QES,"['electron', 'proton']",993.3069743242205
+606,Electron,Electron,DIS,['electron'],1003.2054190684471
+607,Electron,Electron,QES,"['electron', 'proton']",1013.1607319479887
+608,Electron,Electron,QES,"['electron', 'proton']",1007.2595818419716
+609,Electron,Electron,QES,"['electron', 'proton']",992.5296912227639
+610,Electron,Electron,pi,"['electron', 'proton', 'pi+']",969.030992122215
+611,Electron,Electron,pi,"['electron', 'proton', 'pi+']",990.5546042008959
+612,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.803834296556
+613,Electron,Electron,QES,"['electron', 'proton']",1011.8182421847489
+614,Electron,Electron,QES,"['electron', 'proton']",973.993237332019
+615,Electron,Electron,QES,"['electron', 'proton']",989.1951352661221
+616,Electron,Electron,QES,"['electron', 'proton']",991.1011171480911
+617,Electron,Electron,pi,"['electron', 'proton', 'pi+']",988.4218495027867
+618,Electron,Electron,DIS,['electron'],989.9997598352745
+619,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",999.8767725967449
+620,Electron,Electron,DIS,['electron'],1006.4734551480101
+621,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1000.5055408862308
+622,Electron,Electron,QES,"['electron', 'proton']",988.4286519493169
+623,Electron,Electron,pi,"['electron', 'proton', 'pi+']",992.2075907690424
+624,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1008.9380260954109
+625,Electron,Electron,QES,"['electron', 'proton']",994.0270255401268
+626,Electron,Electron,pi,"['electron', 'proton', 'pi+']",993.6428835061779
+627,Electron,Electron,DIS,['electron'],1025.7243215059664
+628,Electron,Electron,QES,"['electron', 'proton']",1004.5927505228243
+629,Electron,Electron,QES,"['electron', 'proton']",999.8860327175687
+630,Electron,Electron,pi,"['electron', 'proton', 'pi+']",992.4941505153
+631,Electron,Electron,QES,"['electron', 'proton']",992.4908518038922
+632,Electron,Electron,QES,"['electron', 'proton']",1014.0119067872552
+633,Electron,Electron,QES,"['electron', 'proton']",992.8735450030246
+634,Electron,Electron,QES,"['electron', 'proton']",999.3108223141687
+635,Electron,Electron,QES,"['electron', 'proton']",987.5316677210473
+636,Electron,Electron,QES,"['electron', 'proton']",1000.9643712739484
+637,Electron,Electron,QES,"['electron', 'proton']",997.7133091063679
+638,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",982.4033203611377
+639,Electron,Electron,QES,"['electron', 'proton']",999.0352269584089
+640,Electron,Electron,QES,"['electron', 'proton']",983.9076170359724
+641,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1007.56114257226
+642,Electron,Electron,QES,"['electron', 'proton']",998.3893781088173
+643,Electron,Electron,pi,"['electron', 'proton', 'pi+']",987.7978084744607
+644,Electron,Electron,DIS,['electron'],1011.7308955706211
+645,Electron,Electron,QES,"['electron', 'proton']",990.7661477526195
+646,Electron,Electron,QES,"['electron', 'proton']",1011.1114403395219
+647,Electron,Electron,QES,"['electron', 'proton']",1012.1126153646593
+648,Electron,Electron,QES,"['electron', 'proton']",993.7277173958274
+649,Electron,Electron,pi,"['electron', 'proton', 'pi+']",981.2082312955197
+650,Electron,Electron,QES,"['electron', 'proton']",1001.1476197757647
+651,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",992.2807619192614
+652,Electron,Electron,QES,"['electron', 'proton']",998.7240928897871
+653,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1002.9737732013547
+654,Electron,Electron,DIS,['electron'],992.9443854090382
+655,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1000.5838919060042
+656,Electron,Electron,QES,"['electron', 'proton']",988.163837627548
+657,Electron,Electron,DIS,['electron'],996.3482071525483
+658,Electron,Electron,QES,"['electron', 'proton']",1009.038777468314
+659,Electron,Electron,pi,"['electron', 'proton', 'pi+']",991.618057723776
+660,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",997.6313222495389
+661,Electron,Electron,pi,"['electron', 'proton', 'pi+']",998.928910659608
+662,Electron,Electron,QES,"['electron', 'proton']",993.551694295955
+663,Electron,Electron,QES,"['electron', 'proton']",1001.3680556337287
+664,Electron,Electron,DIS,['electron'],1010.7823575679023
+665,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.0960267670739
+666,Electron,Electron,pi,"['electron', 'proton', 'pi0']",993.2723855086506
+667,Electron,Electron,pi,"['electron', 'proton', 'pi+']",996.6847201437072
+668,Electron,Electron,DIS,['electron'],1011.5802743736914
+669,Electron,Electron,QES,"['electron', 'proton']",987.3082848769325
+670,Electron,Electron,QES,"['electron', 'proton']",982.8962929513274
+671,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1006.9837295424473
+672,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1000.0079762554376
+673,Electron,Electron,QES,"['electron', 'proton']",1010.6428531222945
+674,Electron,Electron,QES,"['electron', 'proton']",1009.3204194831192
+675,Electron,Electron,DIS,['electron'],1008.4654887325619
+676,Electron,Electron,QES,"['electron', 'proton']",988.6936098505657
+677,Electron,Electron,pi,"['electron', 'proton', 'pi+']",979.5573346609048
+678,Electron,Electron,QES,"['electron', 'proton']",995.6966260139901
+679,Electron,Electron,QES,"['electron', 'proton']",998.7857365015457
+680,Electron,Electron,QES,"['electron', 'proton']",1003.7382691509251
+681,Electron,Electron,QES,"['electron', 'proton']",1007.5009660283371
+682,Electron,Electron,QES,"['electron', 'proton']",1001.6691448203384
+683,Electron,Electron,QES,"['electron', 'proton']",1005.2925324986861
+684,Electron,Electron,DIS,['electron'],1013.6302486734896
+685,Electron,Electron,pi,"['electron', 'proton', 'pi+']",991.5283891835662
+686,Electron,Electron,DIS,['electron'],1012.3806506946314
+687,Electron,Electron,QES,"['electron', 'proton']",992.3180554678877
+688,Electron,Electron,QES,"['electron', 'proton']",995.2044700680542
+689,Electron,Electron,DIS,['electron'],1002.9539253384303
+690,Electron,Electron,DIS,['electron'],994.3243823134402
+691,Electron,Electron,QES,"['electron', 'proton']",1016.9372949602512
+692,Electron,Electron,QES,"['electron', 'proton']",1024.9058065920374
+693,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1003.821392295023
+694,Electron,Electron,DIS,['electron'],998.5057125881636
+695,Electron,Electron,QES,"['electron', 'proton']",1008.2262786732159
+696,Electron,Muon,QES,"['muon', 'proton']",1002.6179750930809
+697,Electron,Electron,QES,"['electron', 'proton']",967.0311162842214
+698,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",995.2097565291843
+699,Electron,Electron,QES,"['electron', 'proton']",1007.3322698886011
+700,Electron,Electron,DIS,['electron'],1011.4146442485902
+701,Electron,Electron,QES,"['electron', 'proton']",987.937963141274
+702,Electron,Electron,QES,"['electron', 'proton']",1003.9736056026799
+703,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1013.1165232150605
+704,Electron,Electron,QES,"['electron', 'proton']",988.1527032516931
+705,Electron,Electron,DIS,['electron'],989.9202347615253
+706,Electron,Electron,QES,"['electron', 'proton']",1004.409631022509
+707,Electron,Electron,QES,"['electron', 'proton']",1002.4279303025405
+708,Electron,Electron,QES,"['electron', 'proton']",1009.2564653171073
+709,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1001.7798709996496
+710,Electron,Electron,QES,"['electron', 'proton']",1004.6052351400641
+711,Electron,Electron,QES,"['electron', 'proton']",988.449483881132
+712,Electron,Electron,QES,"['electron', 'proton']",987.8063138694882
+713,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1010.4407286082246
+714,Electron,Electron,QES,"['electron', 'proton']",1002.7406222351154
+715,Electron,Electron,QES,"['electron', 'proton']",999.3716061508095
+716,Electron,Electron,QES,"['electron', 'proton']",1005.0429803619787
+717,Electron,Electron,QES,"['electron', 'proton']",992.8103065875964
+718,Electron,Electron,QES,"['electron', 'proton']",1003.8441941629889
+719,Electron,Electron,QES,"['electron', 'proton']",996.0718028159907
+720,Electron,Electron,DIS,['electron'],1012.231066330708
+721,Electron,Muon,pi,"['muon', 'proton', 'pi+']",1000.6180877656108
+722,Electron,Electron,QES,"['electron', 'proton']",1001.4204752417736
+723,Electron,Electron,QES,"['electron', 'proton']",998.5663579608922
+724,Electron,Electron,QES,"['electron', 'proton']",996.6399313159937
+725,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1011.6871557520699
+726,Electron,Electron,QES,"['electron', 'proton']",985.606640967257
+727,Electron,Electron,QES,"['electron', 'proton']",998.9395528104924
+728,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1006.7830958340508
+729,Electron,Electron,QES,"['electron', 'proton']",995.7940334869048
+730,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1005.0893996539149
+731,Electron,Electron,pi,"['electron', 'proton', 'pi+']",997.1385590064046
+732,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1013.0986906841339
+733,Electron,Electron,DIS,['electron'],1005.8614956317411
+734,Electron,Electron,DIS,['electron'],1000.6841238874815
+735,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.1095783771995
+736,Electron,Electron,DIS,['electron'],985.6478931713857
+737,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1012.0900275934478
+738,Electron,Electron,QES,"['electron', 'proton']",996.8211329501972
+739,Electron,Electron,QES,"['electron', 'proton']",1023.4558858182979
+740,Electron,Electron,QES,"['electron', 'proton']",996.6904462560445
+741,Electron,Electron,QES,"['electron', 'proton']",1012.1008491672376
+742,Electron,Electron,DIS,['electron'],1015.5893579446388
+743,Electron,Electron,DIS,['electron'],1000.5229169964072
+744,Electron,Electron,QES,"['electron', 'proton']",992.8420255295127
+745,Electron,Electron,DIS,['electron'],1009.5170775763593
+746,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1003.169624689906
+747,Electron,Electron,QES,"['electron', 'proton']",1003.8048605784442
+748,Electron,Electron,QES,"['electron', 'proton']",992.7584050133738
+749,Electron,Electron,pi,"['electron', 'proton', 'pi+']",991.108808999783
+750,Electron,Electron,QES,"['electron', 'proton']",991.2898090669905
+751,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1007.3982152393681
+752,Electron,Electron,QES,"['electron', 'proton']",998.9808385431367
+753,Electron,Electron,QES,"['electron', 'proton']",993.1116658482304
+754,Electron,Electron,QES,"['electron', 'proton']",991.022540325804
+755,Electron,Electron,QES,"['electron', 'proton']",997.9596935389051
+756,Electron,Electron,QES,"['electron', 'proton']",997.5553023161542
+757,Electron,Electron,QES,"['electron', 'proton']",1005.6984266819992
+758,Electron,Electron,QES,"['electron', 'proton']",1017.9309776722615
+759,Electron,Electron,QES,"['electron', 'proton']",1005.3011722484503
+760,Electron,Electron,QES,"['electron', 'proton']",1006.7340780725783
+761,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",986.182971299342
+762,Electron,Electron,DIS,['electron'],995.7942376760503
+763,Electron,Electron,QES,"['electron', 'proton']",998.2988240238967
+764,Electron,Electron,QES,"['electron', 'proton']",982.2925489920312
+765,Electron,Electron,QES,"['electron', 'proton']",997.2751317190744
+766,Electron,Electron,QES,"['electron', 'proton']",992.6233847916121
+767,Electron,Electron,DIS,['electron'],999.5159258509455
+768,Electron,Electron,QES,"['electron', 'proton']",985.9767296999835
+769,Electron,Electron,QES,"['electron', 'proton']",996.7660809531529
+770,Electron,Electron,QES,"['electron', 'proton']",1002.7524398627172
+771,Electron,Electron,QES,"['electron', 'proton']",996.6450995960745
+772,Electron,Electron,pi,"['electron', 'proton', 'pi+']",995.4274803726955
+773,Electron,Electron,QES,"['electron', 'proton']",1003.9353707499698
+774,Electron,Electron,QES,"['electron', 'proton']",988.7995217113296
+775,Electron,Electron,DIS,['electron'],1007.6999760453731
+776,Electron,Electron,DIS,['electron'],1003.5834504034827
+777,Electron,Electron,QES,"['electron', 'proton']",1003.5882552337765
+778,Electron,Electron,DIS,['electron'],992.2497806417028
+779,Electron,Electron,QES,"['electron', 'proton']",987.7610955930728
+780,Electron,Electron,pi,"['electron', 'proton', 'pi+']",983.9361936040099
+781,Electron,Electron,QES,"['electron', 'proton']",995.8934116113953
+782,Electron,Electron,DIS,['electron'],1009.3681655885197
+783,Electron,Electron,pi,"['electron', 'proton', 'pi+']",990.7535326991002
+784,Electron,Electron,QES,"['electron', 'proton']",984.370279287255
+785,Electron,Electron,QES,"['electron', 'proton']",999.2164188265324
+786,Electron,Electron,pi,"['electron', 'proton', 'pi0']",988.8228294396549
+787,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1000.0403572584607
+788,Electron,Electron,QES,"['electron', 'proton']",1019.94203048935
+789,Electron,Electron,DIS,['electron'],1010.64813136811
+790,Electron,Electron,DIS,['electron'],1004.2352554330824
+791,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1004.0077397714609
+792,Electron,Electron,QES,"['electron', 'proton']",990.4699459359787
+793,Electron,Electron,QES,"['electron', 'proton']",994.7459077835065
+794,Electron,Electron,QES,"['electron', 'proton']",999.8012598962098
+795,Electron,Electron,DIS,['electron'],999.5631613034637
+796,Electron,Electron,QES,"['electron', 'proton']",982.2343004908649
+797,Electron,Electron,QES,"['electron', 'proton']",989.8288410987792
+798,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1005.6433452812634
+799,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1002.8902068871515
+800,Electron,Electron,QES,"['electron', 'proton']",990.957443307316
+801,Electron,Electron,DIS,['electron'],1003.2201411668829
+802,Electron,Electron,QES,"['electron', 'proton']",1003.7192683791045
+803,Electron,Electron,QES,"['electron', 'proton']",983.4931338012501
+804,Electron,Electron,QES,"['electron', 'proton']",1005.5510624546636
+805,Electron,Electron,QES,"['electron', 'proton']",995.0103827342059
+806,Electron,Electron,QES,"['electron', 'proton']",990.0044159121949
+807,Electron,Muon,QES,"['muon', 'proton']",1006.7795918324961
+808,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1013.8354426453637
+809,Electron,Electron,QES,"['electron', 'proton']",994.5302959110519
+810,Electron,Electron,QES,"['electron', 'proton']",1014.7259127314359
+811,Electron,Electron,QES,"['electron', 'proton']",999.0222054081579
+812,Electron,Electron,QES,"['electron', 'proton']",1006.1821551599977
+813,Electron,Electron,QES,"['electron', 'proton']",992.4041696101251
+814,Electron,Electron,QES,"['electron', 'proton']",1004.5246794499644
+815,Electron,Electron,QES,"['electron', 'proton']",990.3724703272347
+816,Electron,Electron,QES,"['electron', 'proton']",1008.2063768053698
+817,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1007.2017491715684
+818,Electron,Electron,DIS,['electron'],992.0950274163065
+819,Electron,Electron,QES,"['electron', 'proton']",1006.3457061092972
+820,Electron,Electron,QES,"['electron', 'proton']",1000.0055748410803
+821,Electron,Electron,QES,"['electron', 'proton']",999.5577672145956
+822,Electron,Electron,DIS,['electron'],1008.5632183054387
+823,Electron,Electron,QES,"['electron', 'proton']",1011.0791741580335
+824,Electron,Electron,DIS,['electron'],985.373332953895
+825,Electron,Electron,QES,"['electron', 'proton']",1011.1367843330106
+826,Electron,Electron,QES,"['electron', 'proton']",1012.0162758620002
+827,Electron,Electron,DIS,['electron'],998.0833577529675
+828,Electron,Electron,pi,"['electron', 'proton', 'pi0']",984.8157602188302
+829,Electron,Electron,DIS,['electron'],1010.3778563276776
+830,Electron,Electron,QES,"['electron', 'proton']",994.1559011432764
+831,Electron,Electron,QES,"['electron', 'proton']",999.2461993644532
+832,Electron,Electron,QES,"['electron', 'proton']",1003.1417547002959
+833,Electron,Electron,QES,"['electron', 'proton']",995.5558070741571
+834,Electron,Electron,QES,"['electron', 'proton']",1007.4991592526109
+835,Electron,Electron,QES,"['electron', 'proton']",1007.0937325787603
+836,Electron,Muon,DIS,['muon'],1004.9993142291771
+837,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1013.5104544519684
+838,Electron,Electron,QES,"['electron', 'proton']",998.5662449167047
+839,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1000.7778169671324
+840,Electron,Electron,QES,"['electron', 'proton']",1007.1960339820231
+841,Electron,Electron,pi,"['electron', 'proton', 'pi0']",989.8764059897343
+842,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.8809722379866
+843,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1008.8620923455936
+844,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1001.1102408105122
+845,Electron,Electron,DIS,['electron'],1000.2531712963925
+846,Electron,Electron,QES,"['electron', 'proton']",1007.0649069414818
+847,Electron,Electron,pi,"['electron', 'proton', 'pi0']",991.8645721428992
+848,Electron,Electron,QES,"['electron', 'proton']",998.995582601803
+849,Electron,Electron,DIS,['electron'],995.7622030914342
+850,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1007.5075714549814
+851,Electron,Electron,QES,"['electron', 'proton']",1008.078923620649
+852,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1009.2020616164285
+853,Electron,Electron,QES,"['electron', 'proton']",1002.689670023128
+854,Electron,Electron,QES,"['electron', 'proton']",1002.2249693674692
+855,Electron,Electron,DIS,['electron'],985.114657111829
+856,Electron,Electron,DIS,['electron'],1006.3272268716091
+857,Electron,Electron,QES,"['electron', 'proton']",979.123927871384
+858,Electron,Electron,QES,"['electron', 'proton']",1001.3928752182194
+859,Electron,Muon,pi,"['muon', 'proton', 'pi+']",1016.78713618561
+860,Electron,Electron,QES,"['electron', 'proton']",1008.5044623099138
+861,Electron,Electron,QES,"['electron', 'proton']",1006.3547689147126
+862,Electron,Electron,DIS,['electron'],997.7182334061769
+863,Electron,Electron,QES,"['electron', 'proton']",984.9988034430236
+864,Electron,Electron,QES,"['electron', 'proton']",997.4043766019884
+865,Electron,Electron,QES,"['electron', 'proton']",1007.9600173712545
+866,Electron,Electron,QES,"['electron', 'proton']",998.9162685699737
+867,Electron,Electron,DIS,['electron'],990.9256091706594
+868,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.0444594075107
+869,Electron,Electron,DIS,['electron'],986.46304776581
+870,Electron,Electron,QES,"['electron', 'proton']",1004.0314315042677
+871,Electron,Electron,QES,"['electron', 'proton']",992.666468734205
+872,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1002.6336907160091
+873,Electron,Electron,DIS,['electron'],1012.1950392973457
+874,Electron,Electron,QES,"['electron', 'proton']",1002.8229951421723
+875,Electron,Electron,QES,"['electron', 'proton']",1002.8944834886574
+876,Electron,Electron,QES,"['electron', 'proton']",1020.648027683115
+877,Electron,Electron,pi,"['electron', 'proton', 'pi+']",998.2077400426376
+878,Electron,Electron,QES,"['electron', 'proton']",981.2553784016302
+879,Electron,Muon,QES,"['muon', 'proton']",1012.8397029862751
+880,Electron,Electron,pi,"['electron', 'proton', 'pi0']",996.3066639954036
+881,Electron,Electron,DIS,['electron'],997.0265642169471
+882,Electron,Electron,QES,"['electron', 'proton']",985.7948083645009
+883,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1005.0542410858153
+884,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1004.6874780760746
+885,Electron,Electron,DIS,['electron'],995.1610118102868
+886,Electron,Electron,QES,"['electron', 'proton']",997.3042828365283
+887,Electron,Electron,QES,"['electron', 'proton']",963.8192682464887
+888,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",986.1440381931089
+889,Electron,Electron,QES,"['electron', 'proton']",1008.7332955115602
+890,Electron,Electron,QES,"['electron', 'proton']",987.5033048064985
+891,Electron,Electron,pi,"['electron', 'proton', 'pi+']",990.0127121668445
+892,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1000.4863438511479
+893,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.8700889390849
+894,Electron,Electron,QES,"['electron', 'proton']",1002.8479138054887
+895,Electron,Electron,QES,"['electron', 'proton']",985.5695772451753
+896,Electron,Electron,QES,"['electron', 'proton']",1000.1956662065732
+897,Electron,Electron,QES,"['electron', 'proton']",994.3300124405721
+898,Electron,Electron,QES,"['electron', 'proton']",1001.7478842084166
+899,Electron,Electron,QES,"['electron', 'proton']",1011.076854732694
+900,Electron,Electron,QES,"['electron', 'proton']",998.1090313846593
+901,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.0890510036214
+902,Electron,Electron,QES,"['electron', 'proton']",983.5347068469571
+903,Electron,Electron,QES,"['electron', 'proton']",997.2046073331305
+904,Electron,Electron,QES,"['electron', 'proton']",1003.4611236693573
+905,Electron,Electron,QES,"['electron', 'proton']",1002.7209894740781
+906,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1009.4705529086513
+907,Electron,Electron,QES,"['electron', 'proton']",1004.0529824915113
+908,Electron,Electron,QES,"['electron', 'proton']",997.7366657682998
+909,Electron,Electron,QES,"['electron', 'proton']",993.9619837823997
+910,Electron,Electron,QES,"['electron', 'proton']",1011.9870759330503
+911,Electron,Electron,pi,"['electron', 'proton', 'pi+']",994.7881053693269
+912,Electron,Electron,DIS,['electron'],1015.7589995663127
+913,Electron,Electron,QES,"['electron', 'proton']",1002.8211764379948
+914,Electron,Electron,QES,"['electron', 'proton']",997.4646413035523
+915,Electron,Electron,QES,"['electron', 'proton']",1013.1965116926172
+916,Electron,Electron,QES,"['electron', 'proton']",993.8945269809991
+917,Electron,Electron,QES,"['electron', 'proton']",1010.6372605215655
+918,Electron,Electron,QES,"['electron', 'proton']",997.6194006324015
+919,Electron,Electron,QES,"['electron', 'proton']",986.7285866544725
+920,Electron,Electron,QES,"['electron', 'proton']",1010.782847570725
+921,Electron,Electron,DIS,['electron'],1004.0893263082428
+922,Electron,Electron,QES,"['electron', 'proton']",988.4730782375998
+923,Electron,Electron,DIS,['electron'],994.0416126558621
+924,Electron,Electron,pi,"['electron', 'proton', 'pi+']",992.0719474992568
+925,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1009.5612300363101
+926,Electron,Electron,DIS,['electron'],994.1449536317126
+927,Electron,Electron,DIS,['electron'],1014.0235970395247
+928,Electron,Electron,DIS,['electron'],1001.9641325886649
+929,Electron,Electron,QES,"['electron', 'proton']",1013.514798822546
+930,Electron,Electron,QES,"['electron', 'proton']",1001.4509660120755
+931,Electron,Electron,QES,"['electron', 'proton']",1005.1785171220097
+932,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",988.6808418081042
+933,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1001.395178149157
+934,Electron,Electron,DIS,['electron'],1024.4950553125793
+935,Electron,Electron,DIS,['electron'],1011.1021095195905
+936,Electron,Electron,QES,"['electron', 'proton']",1005.4870148740342
+937,Electron,Electron,QES,"['electron', 'proton']",1022.1289234769002
+938,Electron,Electron,DIS,['electron'],992.344362228409
+939,Electron,Electron,pi,"['electron', 'proton', 'pi+']",980.9710924214145
+940,Electron,Electron,QES,"['electron', 'proton']",991.8001106801737
+941,Electron,Electron,DIS,['electron'],1007.8557786902471
+942,Electron,Electron,QES,"['electron', 'proton']",1004.0627247328443
+943,Electron,Electron,QES,"['electron', 'proton']",1012.8966369276509
+944,Electron,Electron,QES,"['electron', 'proton']",994.6652275350359
+945,Electron,Electron,QES,"['electron', 'proton']",1000.4910814180205
+946,Electron,Electron,QES,"['electron', 'proton']",1009.158174821088
+947,Electron,Electron,DIS,['electron'],1008.0887017040133
+948,Electron,Electron,QES,"['electron', 'proton']",990.9080536480983
+949,Electron,Electron,QES,"['electron', 'proton']",992.4040712484385
+950,Electron,Electron,QES,"['electron', 'proton']",1015.9497525959177
+951,Electron,Electron,DIS,['electron'],1002.075383442575
+952,Electron,Electron,DIS,['electron'],991.8760367746607
+953,Electron,Electron,DIS,['electron'],1009.3623717259759
+954,Electron,Electron,DIS,['electron'],1006.5737688109658
+955,Electron,Electron,QES,"['electron', 'proton']",985.6423507499906
+956,Electron,Electron,QES,"['electron', 'proton']",1027.3602664944092
+957,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1021.7522904324433
+958,Electron,Electron,QES,"['electron', 'proton']",999.7692770481932
+959,Electron,Electron,pi,"['electron', 'proton', 'pi+']",986.8111185743293
+960,Electron,Muon,pi,"['muon', 'proton', 'pi+']",991.2152173718446
+961,Electron,Electron,pi,"['electron', 'proton', 'pi+']",989.9047279659295
+962,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",993.7905409635908
+963,Electron,Electron,QES,"['electron', 'proton']",1009.0219634292652
+964,Electron,Electron,QES,"['electron', 'proton']",1012.8013132470116
+965,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",994.8216685137497
+966,Electron,Electron,DIS,['electron'],1005.1233270074271
+967,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1001.8511084368614
+968,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1008.3980400675234
+969,Electron,Electron,QES,"['electron', 'proton']",1011.1984425018189
+970,Electron,Electron,QES,"['electron', 'proton']",990.2737396358564
+971,Electron,Electron,QES,"['electron', 'proton']",1018.9275505567813
+972,Electron,Electron,QES,"['electron', 'proton']",990.8563857802418
+973,Electron,Electron,pi,"['electron', 'neutron', 'pi+']",1015.1136480765409
+974,Electron,Electron,pi,"['electron', 'proton', 'pi+']",983.2129604547586
+975,Electron,Electron,QES,"['electron', 'proton']",1000.0810614747162
+976,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1012.6951210443235
+977,Electron,Electron,DIS,['electron'],1003.1825118262515
+978,Electron,Electron,QES,"['electron', 'proton']",1000.643659587229
+979,Electron,Electron,QES,"['electron', 'proton']",1022.8840613839677
+980,Electron,Electron,pi,"['electron', 'proton', 'pi0']",1001.6994009870698
+981,Electron,Electron,DIS,['electron'],1005.0210258096398
+982,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1015.0849752393111
+983,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1015.1104056529433
+984,Electron,Electron,pi,"['electron', 'proton', 'pi+']",999.3150359785054
+985,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1003.9303658210036
+986,Electron,Electron,QES,"['electron', 'proton']",992.9378406518343
+987,Electron,Electron,QES,"['electron', 'proton']",1001.3573739430391
+988,Electron,Electron,pi,"['electron', 'proton', 'pi+']",985.4334329016302
+989,Electron,Electron,QES,"['electron', 'proton']",1006.0225252776454
+990,Electron,Electron,pi,"['electron', 'proton', 'pi+']",1016.3459375358192
+991,Electron,Electron,QES,"['electron', 'proton']",1013.8424394838289
+992,Electron,Electron,DIS,['electron'],998.6469895220033
+993,Electron,Electron,DIS,['electron'],1017.0753482953614
+994,Electron,Electron,QES,"['electron', 'proton']",993.6945060840858
+995,Electron,Electron,DIS,['electron'],1014.8313940375064
+996,Electron,Electron,QES,"['electron', 'proton']",994.5015147268854
+997,Electron,Electron,QES,"['electron', 'proton']",989.6688419235613
+998,Electron,Electron,QES,"['electron', 'proton']",1007.3804828021497
+999,Electron,Electron,pi,"['electron', 'proton', 'pi0']",996.2546568352517
+1000,Electron,Electron,QES,"['electron', 'proton']",999.2978281367544
