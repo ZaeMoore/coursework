@@ -9,6 +9,7 @@ import matplotlib
 matplotlib.use("agg")
 import matplotlib.pyplot as plt
 import final_state as fs
+import trajectory
 import csv
 
 print(
