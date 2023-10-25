@@ -56,6 +56,23 @@ class FinalHit():
         return xVel, yVel, zVel
 
     def WhereHit(self, xVel, yVel, zVel, xPos, xNeg):
+        hitLoc = []
+        finalE = []
+        for i in range(len(self.initialE)):
+            finalVelZ = zVel[i]
+            finalVelY = yVel[i]
+            
+
         pass
+
+
+testEnergies = [10, 50, 15]
+testMass = [1, 2, 3]
+testCharge = [-1, 1, -1]
+
+testHit = FinalHit(testEnergies, testMass, testCharge, 1)
+print(testHit.mom)
+print(testHit.vComponents(0.1))
+            
 
     
