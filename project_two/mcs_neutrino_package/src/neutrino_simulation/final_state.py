@@ -12,8 +12,6 @@ class FinalState:
         """Initializing class to determine information about the final state after a collision
         between a neutrino and an Argon atom
 
-        ...
-
         Attributes
         ----------
         beam_energy : int
@@ -42,8 +40,6 @@ class FinalState:
 
     def neutrino_flavor(self):
         """Determine the flavor of the neutrino at the point of collision, assuming 2 flavor options
-
-        ...
 
         Parameters
         ----------
@@ -77,8 +73,6 @@ class FinalState:
         """Determine the energy of the individual neutrino based on a normal Gaussian
         distribution of the beam energy
 
-        ...
-
         Parameters
         ----------
         e_nu : int
@@ -86,7 +80,7 @@ class FinalState:
 
         Returns
         -------
-        int
+        float
             Energy of individual neutrino (MeV).
         """
         random_number = np.random.uniform(0, 1)
@@ -94,13 +88,11 @@ class FinalState:
         return abs(e_nu)
 
     def final_particles(self):
-        """Monte Carlo simulation to determine the final state particles of the neutrino Argon collision
-
-        ...
+        """Determine the final state particles of the neutrino Argon collision
 
         Parameters
         ----------
-        e_nu : int
+        e_nu : float
             Initial energy of neutrino (MeV) from energy_distribution method.
         flavor : bool
             Flavor of neutrino upon interacting with Argon from neutrino_flavor method.
@@ -125,11 +117,7 @@ class FinalState:
         e_nu = self.energy_distribution()
 
         def qes(x):
-            """This function defines the probability of a quasi-elastic scattering event
-            happening based on the energy of the initial neutrino. This function was derived
-            from real neutrino experiments
-
-            ...
+            """Probability of a quasi-elastic scattering event
 
             Parameters
             ----------
@@ -137,17 +125,13 @@ class FinalState:
 
             Returns
             -------
-            int
+            float
                 Probability of a qes event occuring
             """
             return 2 * x * (math.e ** (-(x**2)))
 
         def dis(x):
-            """This function defines the probability of a deep inelastic scattering event
-            happening based on the energy of the initial neutrino. This function was derived
-            from real neutrino experiments
-
-            ...
+            """Probability of a deep inelastic scattering event
 
             Parameters
             ----------
@@ -155,7 +139,7 @@ class FinalState:
 
             Returns
             -------
-            int
+            float
                 Probability of a dis event occuring
             """
             if x <= 0.75:
@@ -164,11 +148,7 @@ class FinalState:
                 return -math.e ** (-x + 0.5) + 0.8
 
         def pi(x):
-            """This function defines the probability of a pi resonance event
-            happening based on the energy of the initial neutrino. This function was derived
-            from real neutrino experiments
-
-            ...
+            """Probability of a pi resonance event
 
             Parameters
             ----------
@@ -176,7 +156,7 @@ class FinalState:
 
             Returns
             -------
-            int
+            float
                 Probability of a pi resonance event occuring
             """
             if x <= 0.25:
