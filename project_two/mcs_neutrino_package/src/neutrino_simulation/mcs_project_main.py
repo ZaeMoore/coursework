@@ -115,5 +115,15 @@ with open("neutrinodata.csv", "w", newline="") as file:
 print(final_particle_mass)
 print(final_particle_energy)
 print(final_particle_charge)
+
+#Zae pls help, these look silly
+
+particleMass = [item for sublist in final_particle_mass for item in sublist]
+particleE = [item for sublist in final_particle_energy for item in sublist]
+particleCharge = [item for sublist in final_particle_charge for item in sublist]
+
+
+
+print(len(particleMass), len(particleE), len(particleCharge))
     
 # Output a plot with positions of hits
