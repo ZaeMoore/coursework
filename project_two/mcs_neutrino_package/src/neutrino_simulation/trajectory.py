@@ -94,6 +94,9 @@ class FinalHit():
         hitLocZ = []
         E = []
         a_t = np.arange(start = 0, stop = 50, step = 0.1)
+                
+                
+            
         for i in range(len(self.initialE)):
             finalVelZ = zVel[i]
             finalVelY = yVel[i]
@@ -104,7 +107,7 @@ class FinalHit():
                 F,
                 [0, initVelX],
                 a_t,
-                args = (self.fieldStr, self.fieldOscFreq, self.fieldOscStr, self.gamma, self.charge[i])
+                args = (self.fieldStr, self.fieldOscFreq, self.fieldOscStr, self.gamma, charge_filt[i])
                 )
             if self.charge[i] == -1:
                 idx = findClosest(sol[:,0], xNeg)
@@ -127,14 +130,6 @@ class FinalHit():
         return(hitLocX, hitLocY, hitLocZ, E)
 
 
-testEnergies = [10, 50, 15]
-testMass = [1, 2, 3]
-testCharge = [-1, 1, -1]
-
-testHit = FinalHit(testEnergies, testMass, testCharge, 10, 1, 5, 0.1)
-
-xV, yV, zV = testHit.vComponents(0.1)
-print(testHit.WhereHit(xV, yV, zV, 10, -10))
 
 
             
