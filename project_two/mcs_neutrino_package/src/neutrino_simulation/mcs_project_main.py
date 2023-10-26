@@ -150,7 +150,7 @@ detection = FinalHit(
     0.1
     )
 
-xVel, yVel, zVel = detection.vComponents(0.1)
+xVel, yVel, zVel = detection.vComponents(1.0)
 xHit, yHit, zHit, Efin = detection.WhereHit(xVel, yVel, zVel, 10, -10)
 
 fig, ax1 = plt.subplots()
@@ -170,7 +170,13 @@ for i in range(len(xHit)):
         posHitsZ.append(zHit[i])
 
 ax2.plot(negHitsY, negHitsZ, linestyle = 'none', marker = 'o')
+ax2.set_title('Detector Hits at location x = -10')
+ax2.set_xlabel('Y')
+ax2.set_ylabel('Z')
 ax1.plot(posHitsY, posHitsZ, linestyle = 'none', marker = 'o')
+ax1.set_title('Detector Hits at location x = 10')
+ax1.set_xlabel('Y')
+ax1.set_ylabel('Z')
        
 
 plt.show()
