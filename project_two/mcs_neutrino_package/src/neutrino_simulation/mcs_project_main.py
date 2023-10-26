@@ -9,7 +9,7 @@ import math
 import numpy as np
 import matplotlib
 
-matplotlib.use("agg")
+#matplotlib.use("agg")
 import matplotlib.pyplot as plt
 import neutrino_simulation.final_state as fs
 from neutrino_simulation.trajectory import F, findClosest, FinalHit
@@ -139,8 +139,6 @@ for i in range(len(particleMass)): #filter out 0 charge particles
         charge_filt.append(particleCharge[i])
 
         
-        
-print(mass_filt, initialE_filt, charge_filt)
 
 detection = FinalHit(
     initialE_filt,
@@ -152,17 +150,28 @@ detection = FinalHit(
     0.1
     )
 
-xVel, yVel, zVel = detection.vComponents
+xVel, yVel, zVel = detection.vComponents(0.1)
 xHit, yHit, zHit, Efin = detection.WhereHit(xVel, yVel, zVel, 10, -10)
 
 fig, ax1 = plt.subplots()
 fig, ax2 = plt.subplots()
 
+negHitsY = []
+negHitsZ = []
+posHitsY = []
+posHitsZ = []
+
 for i in range(len(xHit)):
-    if xHit[i] > 0:
-        ax1.plot(yHit[i], zHit[i], color = 'blue')
     if xHit[i] < 0:
-        ax2.plot(yHit[i], zHit[i], color = 'red')
+       negHitsY.append(yHit[i])
+       negHitsZ.append(zHit[i])
+    if xHit[i] > 0:
+        posHitsY.append(yHit[i])
+        posHitsZ.append(zHit[i])
+
+ax2.plot(negHitsY, negHitsZ, linestyle = 'none', marker = 'o')
+ax1.plot(posHitsY, posHitsZ, linestyle = 'none', marker = 'o')
+       
 
 plt.show()
         
