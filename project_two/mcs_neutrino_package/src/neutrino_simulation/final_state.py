@@ -53,12 +53,14 @@ class FinalState:
         bool
             Flavor of neutrino.
         """
+        e_nu = self.energy_distribution() #MeV
+        e_nu_gev = e_nu/1000
         delta_m12_sq = 7.53 * (10 ** (-5))  # ev^2
         prob_of_oscillation = 0.855 * (
-            math.sin(delta_m12_sq * self.dist / (4 * self.beam_energy))
-        )
+            math.sin(delta_m12_sq * self.dist / (4 * e_nu_gev))
+        )**2
 
-        random_number = np.random.uniform(0, 1)
+        random_number = np.random.uniform(0, 0.855)
         did_they_oscillate = random_number <= prob_of_oscillation
 
         if did_they_oscillate == True:
