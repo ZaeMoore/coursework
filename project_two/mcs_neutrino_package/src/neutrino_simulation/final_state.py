@@ -267,65 +267,65 @@ class FinalState:
                         mass_i = 940.6
                         final_state_particles = ["antimuon", "neutron", "pi-"]
 
-            i = 0
-            # electron, positron, muon, antimuon, proton, neutron, pi-, pi0, pi+
-            while i < len(final_state_particles):
-                if final_state_particles[i] == "electron":
-                    final_particles_mass.append(0.511)
-                    final_particles_charge.append(-1)
+        i = 0
+        # electron, positron, muon, antimuon, proton, neutron, pi-, pi0, pi+
+        while i < len(final_state_particles):
+            if final_state_particles[i] == "electron":
+                final_particles_mass.append(0.511)
+                final_particles_charge.append(-1)
 
-                if final_state_particles[i] == "positron":
-                    final_particles_mass.append(0.511)
-                    final_particles_charge.append(1)
+            if final_state_particles[i] == "positron":
+                final_particles_mass.append(0.511)
+                final_particles_charge.append(1)
 
-                if final_state_particles[i] == "muon":
-                    final_particles_mass.append(105.700)
-                    final_particles_charge.append(-1)
+            if final_state_particles[i] == "muon":
+                final_particles_mass.append(105.700)
+                final_particles_charge.append(-1)
 
-                if final_state_particles[i] == "antimuon":
-                    final_particles_mass.append(105.700)
-                    final_particles_charge.append(1)
+            if final_state_particles[i] == "antimuon":
+                final_particles_mass.append(105.700)
+                final_particles_charge.append(1)
 
-                if final_state_particles[i] == "proton":
-                    final_particles_mass.append(938.272)
-                    final_particles_charge.append(1)
+            if final_state_particles[i] == "proton":
+                final_particles_mass.append(938.272)
+                final_particles_charge.append(1)
 
-                if final_state_particles[i] == "neutron":
-                    final_particles_mass.append(940.600)
-                    final_particles_charge.append(0)
+            if final_state_particles[i] == "neutron":
+                final_particles_mass.append(940.600)
+                final_particles_charge.append(0)
 
-                if final_state_particles[i] == "pi+":
-                    final_particles_mass.append(139.570)
-                    final_particles_charge.append(1)
+            if final_state_particles[i] == "pi+":
+                final_particles_mass.append(139.570)
+                final_particles_charge.append(1)
 
-                if final_state_particles[i] == "pi-":
-                    final_particles_mass.append(139.570)
-                    final_particles_charge.append(-1)
+            if final_state_particles[i] == "pi-":
+                final_particles_mass.append(139.570)
+                final_particles_charge.append(-1)
 
-                if final_state_particles[i] == "pi0":
-                    final_particles_mass.append(134.977)
-                    final_particles_charge.append(0)
+            if final_state_particles[i] == "pi0":
+                final_particles_mass.append(134.977)
+                final_particles_charge.append(0)
 
-                i += 1
+            i += 1
 
-            # energy distribution
-            if qes_truth or pi_truth:
-                final_mass = sum(final_particles_mass)
-                energy_difference = (
-                    mass_i + e_nu - final_mass
-                )  # Energy leftover after the final particles are created
-                distributed = energy_difference / (len(final_state_particles))
+        # energy distribution
+        if qes_truth or pi_truth:
+            final_mass = sum(final_particles_mass)
+            energy_difference = (
+                mass_i + e_nu - final_mass
+            )  # Energy leftover after the final particles are created
+            distributed = energy_difference / (len(final_state_particles))
 
-            if dis_truth == True:
-                distributed = (
-                    e_nu * np.random.uniform(0.25, 0.5) / (len(final_state_particles))
-                )
+        if dis_truth == True:
+            distributed = (
+                e_nu * np.random.uniform(0.25, 0.5) / (len(final_state_particles))
+            )
 
-            j = 0
-            while j < len(final_state_particles):
-                final_particles_energy.append(final_particles_mass[j] + distributed)
+        j = 0
+        while j < len(final_state_particles):
+            final_particles_energy.append(final_particles_mass[j] + distributed)
 
-                j += 1
+            j += 1
 
         return (
             final_state_particles,
