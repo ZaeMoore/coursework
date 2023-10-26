@@ -1,6 +1,9 @@
 """
 Main script for project two, monte carlo simulation for phy 607
-Authors: Zae Moore, Andrew Dowling
+
+This package simulates the interaction of neutrinos and liquid Argon atoms, and the resulting
+final state particles.
+
 """
 import math
 import numpy as np

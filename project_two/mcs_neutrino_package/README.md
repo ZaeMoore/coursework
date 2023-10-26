@@ -3,7 +3,11 @@ Welcome to the interactive neutrino simulation experience!
 
 Simply download this package and install it to begin!
 
-Typing "run-nu" into the command line will run the main script.
+Enter the directory mcs_neutrino_package and install the dependencies with "pip install ."
+
+Then, enter src/neutrino_simulation
+
+"python mcs_project_main.py" to run
 
 Enter the requested information in the command line! This will be passed to the simulation.
 

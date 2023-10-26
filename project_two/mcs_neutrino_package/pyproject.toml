@@ -1,15 +1,14 @@
 [project]
 name = "neutrino_simulation"
-version = "0.0.1"
+version = "1.0"
 dependencies = [
     "numpy",
     "scipy",
-    "statistics",
-    "matplotlib"
+    "matplotlib",
 ]
 authors = [
-    { name="Zae Moore", email="emoore06@syr.edu" },
-    { name="Andrew Dowling", email="ajdowlin@syr.edu" }
+    {name = "Zae Moore", email = "emoore06@syr.edu"},
+    {name = "Andrew Dowling", email = "ajdowlin@syr.edu"},
 ]
 description = "A monte carlo simulation package that simulates neutrinos interacting with Argon"
 readme = "README.md"
@@ -19,9 +18,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-
-[project.scripts]
-run-nu = "neutrino_simulation:mcs_project_main"
 
 [project.urls]
 "Homepage" = "https://github.com/ZaeMoore/coursework/tree/master/project_two"
