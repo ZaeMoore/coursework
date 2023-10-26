@@ -111,4 +111,9 @@ with open("neutrinodata.csv", "w", newline="") as file:
     wr = csv.writer(file)
     wr.writerows(data)
 
+    
+print(final_particle_mass)
+print(final_particle_energy)
+print(final_particle_charge)
+    
 # Output a plot with positions of hits
