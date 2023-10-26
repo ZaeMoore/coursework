@@ -106,7 +106,7 @@ class FinalHit:
                 F,
                 [0, initVelX],
                 a_t,
-                args = (self.fieldStr, self.fieldOscFreq, self.fieldOscStr, self.gamma, charge_filt[i])
+                args = (self.fieldStr, self.fieldOscFreq, self.fieldOscStr, self.gamma, self.charge[i])
                 )
             if self.charge[i] == -1:
                 idx = findClosest(sol[:,0], xNeg)
