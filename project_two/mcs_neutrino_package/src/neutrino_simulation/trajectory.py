@@ -125,6 +125,7 @@ class FinalHit:
             hitLocY.append(finalY)
             hitLocZ.append(finalZ)
             E.append(finalE)
+            print(i)
                                              
         return(hitLocX, hitLocY, hitLocZ, E)
 
