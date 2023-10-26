@@ -112,11 +112,11 @@ with open("neutrinodata.csv", "w", newline="") as file:
     wr.writerows(data)
 
     
-print(final_particle_mass)
-print(final_particle_energy)
-print(final_particle_charge)
+#print(final_particle_mass)
+#print(final_particle_energy)
+#print(final_particle_charge)
 
-#Zae pls help, these look silly
+#Zae pls help, too many empty lists
 
 particleMass = [item for sublist in final_particle_mass for item in sublist]
 particleE = [item for sublist in final_particle_energy for item in sublist]
@@ -124,6 +124,20 @@ particleCharge = [item for sublist in final_particle_charge for item in sublist]
 
 
 
-print(len(particleMass), len(particleE), len(particleCharge))
-    
+#print(len(particleMass), len(particleE), len(particleCharge))
+
+initialE_filt = []
+mass_filt = []
+charge_filt = []
+
+# 0 charge particles won't generate current in silicon sensors
+
+for i in range(len(particleMass)): #filter out 0 charge particles
+    if particleCharge[i] == 1 or particleCharge[i] == -1:
+        initialE_filt.append(particleE[i])
+        mass_filt.append(particleMass[i])
+        charge_filt.append(particleCharge[i])
+
+
+
 # Output a plot with positions of hits
