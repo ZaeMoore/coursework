@@ -12,7 +12,7 @@ import matplotlib
 matplotlib.use("agg")
 import matplotlib.pyplot as plt
 import neutrino_simulation.final_state as fs
-import neutrino_simulation.trajectory
+from neutrino_simulation.trajectory import F, findClosest, FinalHit
 import csv
 
 print(
@@ -138,6 +138,34 @@ for i in range(len(particleMass)): #filter out 0 charge particles
         mass_filt.append(particleMass[i])
         charge_filt.append(particleCharge[i])
 
+        
+        
+print(mass_filt, initialE_filt, charge_filt)
+
+detection = FinalHit(
+    initialE_filt,
+    mass_filt,
+    charge_filt,
+    100,
+    1,
+    5,
+    0.1
+    )
+
+xVel, yVel, zVel = detection.vComponents
+xHit, yHit, zHit, Efin = detection.WhereHit(xVel, yVel, zVel, 10, -10)
+
+fig, ax1 = plt.subplots()
+fig, ax2 = plt.subplots()
+
+for i in range(len(xHit)):
+    if xHit[i] > 0:
+        ax1.plot(yHit[i], zHit[i], color = 'blue')
+    if xHit[i] < 0:
+        ax2.plot(yHit[i], zHit[i], color = 'red')
+
+plt.show()
+        
 
 
 # Output a plot with positions of hits
