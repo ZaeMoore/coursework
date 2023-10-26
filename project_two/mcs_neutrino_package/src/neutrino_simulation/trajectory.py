@@ -66,7 +66,8 @@ class FinalHit:
 
         absVelocity = self.mom/self.mass #non relativistic neutrinos
         theta = np.random.normal(loc = 0.0, scale = alpha, size = len(self.mom))
-        phi = np.random.normal(loc = 0.0, scale = alpha, size = len(self.mom))
+        rng = np.random.default_rng()
+        phi = rng.random(len(self.mom))*np.pi*2
         xVel = absVelocity*np.sin(theta)*np.cos(phi)
         yVel = absVelocity*np.sin(theta)*np.sin(phi)
         zVel = absVelocity*np.cos(theta)
