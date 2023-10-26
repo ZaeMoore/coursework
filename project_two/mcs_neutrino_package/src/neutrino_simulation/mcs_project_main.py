@@ -150,7 +150,7 @@ detection = FinalHit(
     0.1
     )
 
-xVel, yVel, zVel = detection.vComponents(1.0)
+xVel, yVel, zVel = detection.vComponents(np.pi/4)
 xHit, yHit, zHit, Efin = detection.WhereHit(xVel, yVel, zVel, 10, -10)
 
 fig, ax1 = plt.subplots()
