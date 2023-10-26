@@ -6,59 +6,48 @@ from scipy.optimize import rosen
 #Gradient method
 #Start at each corner
 
-start = [-1, -1]
-delh = 0.0001
-def gradient(vector):
+vector = [-1, -1] #probably best one to start in
+h = 0.0001
+def gradient(x, y):
 
-    grax = (rosen((vector[0] + delh/2, vector[1])) - rosen((vector[0] - delh/2, vector[1])))/delh
-    gray = (rosen((vector[0], vector[1] + delh/2)) - rosen((vector[0], vector[1] - delh/2)))/delh
+    grax = (rosen((x + h/2, y)) - rosen((x - h/2, y)))/h
+    gray = (rosen((x, y + h/2)) - rosen((x, y - h/2)))/h
 
     return (grax, gray)
 
-i = 0
 tolerance = 10**(-10)
-N = 100
-diff = [0,0]
-pointsx = []
-pointsy = []
-pointsz = []
-tau = [0.0001, 0.0001]
-z = 0
+tau = [10**(-8), 10**(-8)]
+x = vector[0]
+y = vector[1]
+z = rosen((vector[0],vector[1]))
+pointsx = [vector[0]]
+pointsy = [vector[1]]
+pointsz = [z]
 while z >= tolerance:
-    pointsx.append(start[0])
-    pointsy.append(start[1])
-    pointsz.append(rosen((start[0], start[1])))
-    print("vector: ", start)
+    gradx, grady = gradient(x, y)
 
-    gradx = gradient(start)[0]
-    grady = gradient(start)[1]
-    print("gradient: ", gradx, grady)
+    diffx = -tau[0] * gradx
+    diffy = -tau[1] * grady
 
+    nextgradx, nextgrady = gradient(x + diffx, y + diffy)
 
-    diff[0] = -tau[0] * gradx
-    diff[1] = -tau[1] * grady
-    print("diff", diff)
-
-    newstart = [start[0] + diff[0], start[1] + diff[1]]    
-
-    tau[0] = (diff[0]*gradient(newstart)[0])/(gradient(newstart)[0] - gradx)
-    tau[1] = (diff[1]*gradient(newstart)[1])/(gradient(newstart)[1] - grady)
-
-    if (rosen((start[0], start[1])) <= tolerance):
-            print(rosen((start[0], start[1])))
-            print(start[0], start[1])
-            break
+    tau[0] = (diffx*nextgradx)/(nextgradx - gradx)
+    tau[1] = (diffy*nextgrady)/(nextgrady - grady)
     
-    start[0] += diff[0]
-    start[1] += diff[1]
+    x += diffx
+    y += diffy
+    z = rosen((x,y))
+    
+    pointsx.append(x)
+    pointsy.append(y)
+    pointsz.append(z)
 
-    i+=1
 
-x = np.arange(-1, 3, .01)
-X, Y = np.meshgrid(x, x)
+print("X, Y = ", vector[0], vector[1])
+print("Z minimum = ", z)
 
-z = np.log(rosen((X, Y)))
-plt.scatter(pointsx, pointsy)
-#plt.pcolormesh(X, Y, z, vmin=1e-3)
-#c = plt.colorbar()
+
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+ax.scatter(pointsx, pointsy, pointsz)
 plt.show()
