@@ -39,7 +39,7 @@ while rsqchange > 0.01:
     rsqnew = sum((ypos - func(xpos, a, b, c, d))**2)
     rsqchange = abs(rsq - rsqnew)
     rsq = rsqnew
-print(a)
+    
 ymean = np.mean(ypos)
 rsqdenom = sum((ypos - ymean)**2)
 
