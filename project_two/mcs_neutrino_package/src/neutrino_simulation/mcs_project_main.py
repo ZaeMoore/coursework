@@ -111,20 +111,11 @@ with open("neutrinodata.csv", "w", newline="") as file:
     wr = csv.writer(file)
     wr.writerows(data)
 
-    
-#print(final_particle_mass)
-#print(final_particle_energy)
-#print(final_particle_charge)
-
-#Zae pls help, too many empty lists
 
 particleMass = [item for sublist in final_particle_mass for item in sublist]
 particleE = [item for sublist in final_particle_energy for item in sublist]
 particleCharge = [item for sublist in final_particle_charge for item in sublist]
 
-
-
-#print(len(particleMass), len(particleE), len(particleCharge))
 
 initialE_filt = []
 mass_filt = []
@@ -181,6 +172,3 @@ ax1.set_ylabel('Z')
 
 plt.show()
         
-
-
-# Output a plot with positions of hits

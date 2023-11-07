@@ -19,5 +19,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[project.scripts]
+run-nu = "neutrino_simulation.mcs_project_main"
+
 [project.urls]
 "Homepage" = "https://github.com/ZaeMoore/coursework/tree/master/project_two"
