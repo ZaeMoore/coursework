@@ -31,3 +31,22 @@ def mcmc(initial, post, prop, iterations):
     return x, p
     
 chain, prob = mcmc(10, post, proposal, 1000000)
+
+plt.figure()
+plt.title("Evolution of the walker")
+plt.plot(chain)
+plt.ylabel('x-value')
+plt.xlabel('Iteration')
+
+plt.figure()
+plt.title("Evolution of the walker")
+plt.plot(chain)
+plt.xlim(0, 100)
+plt.ylabel('x-value')
+plt.xlabel('Iteration')
+
+plt.figure()
+plt.title("Posterior samples")
+_ = plt.hist(chain[100::100], bins=100)
+
+plt.show()
