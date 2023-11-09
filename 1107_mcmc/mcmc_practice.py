@@ -9,11 +9,12 @@ import tqdm
 #Goal is that the position of the walker will be a random drawing from the posterior prob distribution function
 #Prior can be anything, can have it as 1 here
 
-def post(x):
-    #Posterior probability distribution function P(A|B)
-    return 1 / (2 * np.pi) ** 0.5 * np.exp(-1/2 * x ** 2.0)
+def post(x, a, b, c):
+    #Proportional to the posterior probability, Also known as target probability
+    return a * x ** 2 + b * x + c
 
 def proposal(x):
+    #Proposal distribution g(x1 | g0)
     return np.random.normal() + x
     
 def mcmc(initial, post, prop, iterations):
