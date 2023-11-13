@@ -5,49 +5,64 @@ from matplotlib import pyplot as plt
 from numpy.random import uniform
 import tqdm
 
-
-#Goal is that the position of the walker will be a random drawing from the posterior prob distribution function
-#Prior can be anything, can have it as 1 here
+f = h5py.File('./data.hdf', 'r')
+xpos = np.array(f['data/xpos'][:])
+ypos = np.array(f['data/ypos'][:])
 
 def post(x, a, b, c):
-    #Proportional to the posterior probability, Also known as target probability
     return a * x ** 2 + b * x + c
 
 def proposal(x):
-    #Proposal distribution g(x1 | g0)
     return np.random.normal() + x
     
+#Need to do this for a, b, and c to find the best values for these?
 def mcmc(initial, post, prop, iterations):
-    x = [initial]
-    p = [post(x[-1])]
-    for i in tqdm.tqdm(range(iterations)):
-        x_test = prop(x[-1])
-        p_test = post(x_test)
+    a = [initial]
+    b = [initial]
+    c = [initial]
+    p = [post(xpos, a[-1], b[-1], c[-1])] #x[-1] Pulls the last value in the list
+    cost_func = [np.sum((ypos - p)**2)]
 
-        acc = p_test / p[-1] #Acceptance fraction
+    for i in tqdm.tqdm(range(iterations)):
+        a_test = prop(a[-1])
+        b_test = prop(b[-1])
+        c_test = prop(c[-1])
+        #Minimize the cost function
+        p_test = post(xpos, a_test, b_test, c_test)
+        cost_func_test = np.sum((ypos - p_test)**2)
+
+        acc = cost_func_test/ cost_func[-1] #Acceptance fraction
         u = np.random.uniform(0, 1)
         if u <= acc:
-            x.append(x_test)
+            a.append(a_test)
+            b.append(b_test)
+            c.append(c_test)
             p.append(p_test)
-    return x, p
+            cost_func.append(cost_func_test)
+    return a, b, c, p, cost_func
     
-chain, prob = mcmc(10, post, proposal, 1000000)
+chaina, chainb, chainc, prob, cost = mcmc(10, post, proposal, 100000)
 
 plt.figure()
-plt.title("Evolution of the walker")
-plt.plot(chain)
-plt.ylabel('x-value')
+plt.title("Evolution of the walker for Ax^2 + BX + C")
+plt.plot(chaina, label="Param A", color="orange")
+plt.plot(chainb, label="Param B", color="green")
+plt.plot(chainc, label="Param C", color="blue")
+plt.legend()
+plt.ylabel('Param Values')
 plt.xlabel('Iteration')
 
-plt.figure()
-plt.title("Evolution of the walker")
-plt.plot(chain)
+plt.figure() 
+plt.title("Evolution of the walker for Ax^2 + BX + C")
+plt.plot(chaina, label="Param A", color="orange")
+plt.plot(chainb, label="Param B", color="green")
+plt.plot(chainc, label="Param C", color="blue")
 plt.xlim(0, 100)
-plt.ylabel('x-value')
+plt.ylabel('a-value')
 plt.xlabel('Iteration')
 
 plt.figure()
 plt.title("Posterior samples")
-_ = plt.hist(chain[100::100], bins=100)
+_ = plt.hist(chaina[100::100], bins=100)
 
 plt.show()
