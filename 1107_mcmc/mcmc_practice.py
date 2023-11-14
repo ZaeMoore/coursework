@@ -10,42 +10,46 @@ f = h5py.File('./data.hdf', 'r')
 xpos = np.array(f['data/xpos'][:])
 ypos = np.array(f['data/ypos'][:])
 
-def post(x, a, b, c):
+def model(x, a, b, c):
     return a * x ** 2 + b * x + c
+
+def post(x):
+    return likelihood(x) * prior(x)
+
+def prior(x):
+    return 1
 
 def proposal(x):
     return np.random.normal() + x
 
-def likelihood(p):
-    return np.prod(math.e ** (-0.5 * (ypos - p)))
+def likelihood(m):
+    return np.prod(math.e ** (-0.5 * (ypos - m)))
     
-#Need to do this for a, b, and c to find the best values for these?
-def mcmc(initial, post, prop, iterations):
+def mcmc(initial, model, prop, post, iterations):
     a = [initial]
     b = [initial]
     c = [initial]
-    p = [post(xpos, a[-1], b[-1], c[-1])] #x[-1] Pulls the last value in the list
-    l = [likelihood(p)]
+    m = [model(xpos, a[-1], b[-1], c[-1])] #x[-1] Pulls the last value in the list
+    p = [post(m)]
 
     for i in tqdm.tqdm(range(iterations)):
         a_test = prop(a[-1])
         b_test = prop(b[-1])
         c_test = prop(c[-1])
-        #Minimize the cost function
-        p_test = post(xpos, a_test, b_test, c_test)
-        l_test = likelihood(p_test)
+        m_test = model(xpos, a_test, b_test, c_test)
+        p_test = post(m_test)
 
-        acc = l_test / l[-1] #Acceptance fraction
+        acc = p_test / p[-1] #Acceptance fraction
         u = np.random.uniform(0, 1)
         if u <= acc:
             a.append(a_test)
             b.append(b_test)
             c.append(c_test)
+            m.append(m_test)
             p.append(p_test)
-            l.append(l_test)
-    return a, b, c, p, l_test
+    return a, b, c, m, p
     
-chaina, chainb, chainc, prob, cost = mcmc(10, post, proposal, 100000)
+chaina, chainb, chainc, prob, cost = mcmc(10, model, proposal, post, 100000)
 
 plt.figure()
 plt.title("Evolution of the walker for Ax^2 + BX + C")
