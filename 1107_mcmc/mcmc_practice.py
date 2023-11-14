@@ -4,6 +4,7 @@ import h5py
 from matplotlib import pyplot as plt
 from numpy.random import uniform
 import tqdm
+import math
 
 f = h5py.File('./data.hdf', 'r')
 xpos = np.array(f['data/xpos'][:])
@@ -14,6 +15,9 @@ def post(x, a, b, c):
 
 def proposal(x):
     return np.random.normal() + x
+
+def likelihood(p):
+    return np.prod(math.e ** (-0.5 * (ypos - p)))
     
 #Need to do this for a, b, and c to find the best values for these?
 def mcmc(initial, post, prop, iterations):
@@ -21,7 +25,7 @@ def mcmc(initial, post, prop, iterations):
     b = [initial]
     c = [initial]
     p = [post(xpos, a[-1], b[-1], c[-1])] #x[-1] Pulls the last value in the list
-    cost_func = [np.sum((ypos - p)**2)]
+    l = [likelihood(p)]
 
     for i in tqdm.tqdm(range(iterations)):
         a_test = prop(a[-1])
@@ -29,17 +33,17 @@ def mcmc(initial, post, prop, iterations):
         c_test = prop(c[-1])
         #Minimize the cost function
         p_test = post(xpos, a_test, b_test, c_test)
-        cost_func_test = np.sum((ypos - p_test)**2)
+        l_test = likelihood(p_test)
 
-        acc = cost_func_test/ cost_func[-1] #Acceptance fraction
+        acc = l_test / l[-1] #Acceptance fraction
         u = np.random.uniform(0, 1)
         if u <= acc:
             a.append(a_test)
             b.append(b_test)
             c.append(c_test)
             p.append(p_test)
-            cost_func.append(cost_func_test)
-    return a, b, c, p, cost_func
+            l.append(l_test)
+    return a, b, c, p, l_test
     
 chaina, chainb, chainc, prob, cost = mcmc(10, post, proposal, 100000)
 
